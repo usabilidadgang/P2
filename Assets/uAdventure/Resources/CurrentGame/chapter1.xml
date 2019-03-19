@@ -65,13 +65,13 @@
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <trigger-conversation idTarget="VagoPresentacion" />
+          <trigger-conversation idTarget="Vago.presentacion" />
           <condition />
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <trigger-conversation idTarget="VagoPostPresentacion" />
+          <trigger-conversation idTarget="Vago.presentacion.post" />
           <condition />
         </effect>
       </talk-to>
@@ -266,7 +266,7 @@
       </detailed>
     </description>
   </object>
-  <graph-conversation id="VagoPresentacion">
+  <graph-conversation id="Vago.presentacion">
     <dialogue-node nodeindex="0" editor-x="313" editor-y="79">
       <speak-player>#O ¿Hablo con él?</speak-player>
       <condition />
@@ -310,7 +310,7 @@
       <condition />
       <child nodeindex="8" />
     </option-node>
-    <dialogue-node nodeindex="5" editor-x="1880" editor-y="-6">
+    <dialogue-node nodeindex="5" editor-x="1880">
       <child nodeindex="9" />
       <effect>
         <increment var="VagoAfinidad" value="10" />
@@ -335,7 +335,7 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="8" editor-x="-31592" editor-y="8681">
+    <dialogue-node nodeindex="8" editor-x="1897" editor-y="604">
       <speak-player>#! Gandul!</speak-player>
       <condition />
       <child nodeindex="10" />
@@ -398,8 +398,12 @@
       </effect>
     </dialogue-node>
   </graph-conversation>
-  <graph-conversation id="VagoPostPresentacion">
-    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+  <graph-conversation id="Vago.presentacion.post">
+    <dialogue-node nodeindex="0" editor-x="106" editor-y="55">
+      <speak-char idTarget="Vago">OOF</speak-char>
+      <condition>
+        <equals var="VagoAfinidad" value="0" />
+      </condition>
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
