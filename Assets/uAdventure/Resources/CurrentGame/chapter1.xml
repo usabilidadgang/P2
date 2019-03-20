@@ -107,6 +107,22 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: Chulo.presentacion</documentation>
+        <effect>
+          <trigger-conversation idTarget="Chulo.presentacion" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: Chulo.presentacion.post</documentation>
+        <effect>
+          <trigger-conversation idTarget="Chulo.presentacion.post" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <character id="Sumiso">
     <resources name="No name">
@@ -138,6 +154,22 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: Sumiso.presentacion</documentation>
+        <effect>
+          <trigger-conversation idTarget="Sumiso.presentacion" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: Sumiso.presentacion.post</documentation>
+        <effect>
+          <trigger-conversation idTarget="Sumiso.presentacion.post" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <character id="Trabajador">
     <resources name="No name">
@@ -169,6 +201,25 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: Trabajador.presentacion</documentation>
+        <condition>
+          <inactive flag="Trabajador.presentado" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Trabajador.presentacion" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: Trabajador.presentacion.post</documentation>
+        <effect>
+          <trigger-conversation idTarget="Trabajador.presentacion.post" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <scene id="MainMenu" start="yes" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -272,7 +323,7 @@
       <condition />
       <child nodeindex="1" />
     </dialogue-node>
-    <option-node nodeindex="1" question="VagoPresentarse" preListening="yes" editor-x="807" editor-y="43" x="807" y="43">
+    <option-node nodeindex="1" question="VagoPresentarse" keepShowing="yes" preListening="yes" editor-x="807" editor-y="43" x="807" y="43">
       <speak-player>Si</speak-player>
       <condition />
       <child nodeindex="2" />
@@ -280,7 +331,7 @@
       <condition />
       <child nodeindex="3" />
     </option-node>
-    <dialogue-node nodeindex="2" editor-x="1167" editor-y="59">
+    <dialogue-node nodeindex="2" editor-x="1114" editor-y="43">
       <speak-char idTarget="Vago">Eyy.....</speak-char>
       <condition />
       <speak-char idTarget="Vago">¿quien....eres?</speak-char>
@@ -296,7 +347,7 @@
       <condition />
       <end-conversation />
     </dialogue-node>
-    <option-node nodeindex="4" question="VagoPresentacion1" preListening="yes" editor-x="1453" editor-y="159" x="1453" y="159">
+    <option-node nodeindex="4" question="VagoPresentacion1" keepShowing="yes" preListening="yes" editor-x="1453" editor-y="159" x="1453" y="159">
       <speak-player>Hey... soy el nuevo...</speak-player>
       <condition />
       <child nodeindex="5" />
@@ -355,7 +406,7 @@
         </effect>
       </end-conversation>
     </dialogue-node>
-    <option-node nodeindex="11" question="VagoPresentacion2" preListening="yes" editor-x="2539" editor-y="180" x="2539" y="180">
+    <option-node nodeindex="11" question="VagoPresentacion2" keepShowing="yes" preListening="yes" editor-x="2539" editor-y="180" x="2539" y="180">
       <speak-player>Buena</speak-player>
       <condition />
       <child nodeindex="12" />
@@ -404,6 +455,393 @@
       <condition>
         <equals var="VagoAfinidad" value="0" />
       </condition>
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Trabajador.presentacion">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>#O ¿Hablo con el?</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" keepShowing="yes" editor-x="404" editor-y="50" x="404" y="50">
+      <speak-player>Si</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>No</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="624" editor-y="50">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="624" editor-y="244">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <speak-player>
+      </speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <option-node nodeindex="4" keepShowing="yes" editor-x="895" editor-y="46" x="895" y="46">
+      <speak-player>Buena</speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <speak-player>Mediocre</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Mala</speak-player>
+      <condition />
+      <child nodeindex="7" />
+      <speak-player>Nefasta</speak-player>
+      <condition />
+      <child nodeindex="8" />
+    </option-node>
+    <dialogue-node nodeindex="5" editor-x="1115" editor-y="46">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="1115" editor-y="240">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1115" editor-y="434">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1115" editor-y="628">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="10" />
+      <effect>
+        <set-value var="Trabajador.afinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="9" editor-x="1501" editor-y="196">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="11" />
+    </dialogue-node>
+    <dialogue-node nodeindex="10" editor-x="1952" editor-y="707">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="12" />
+      <effect>
+        <set-value var="Trabajador.afinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <option-node nodeindex="11" keepShowing="yes" editor-x="1726" editor-y="175" x="1726" y="175">
+      <speak-player>Buena</speak-player>
+      <condition />
+      <child nodeindex="13" />
+      <speak-player>Mediocre</speak-player>
+      <condition />
+      <child nodeindex="14" />
+      <speak-player>Mala</speak-player>
+      <condition />
+      <child nodeindex="15" />
+      <speak-player>Nefasta</speak-player>
+      <condition />
+      <child nodeindex="10" />
+    </option-node>
+    <dialogue-node nodeindex="12" editor-x="2346" editor-y="317">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="Trabajador.presentado" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="13" editor-x="1955" editor-y="126">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="12" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="14" editor-x="1955" editor-y="319">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="12" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="15" editor-x="1947" editor-y="510">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="12" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Trabajador.presentacion.post">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <speak-player>
+      </speak-player>
+      <condition />
+      <speak-player>
+      </speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Sumiso.presentacion">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>#O ¿Hablo con él?</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" keepShowing="yes" editor-x="285" editor-y="50" x="285" y="50">
+      <speak-player>Si</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>No</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="505" editor-y="50">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="505" editor-y="244">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <option-node nodeindex="4" keepShowing="yes" editor-x="764" editor-y="34" x="764" y="34">
+      <speak-player>Buena</speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <speak-player>Mediocre</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Mala</speak-player>
+      <condition />
+      <child nodeindex="7" />
+      <speak-player>Nefasta</speak-player>
+      <condition />
+      <child nodeindex="8" />
+    </option-node>
+    <dialogue-node nodeindex="5" editor-x="984" editor-y="34">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="984" editor-y="228">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="985" editor-y="422">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="984" editor-y="616">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="10" />
+      <effect>
+        <set-value var="Sumiso.afinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="9" editor-x="1324" editor-y="34">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="11" />
+    </dialogue-node>
+    <dialogue-node nodeindex="10" editor-x="1779" editor-y="616">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="12" />
+      <effect>
+        <set-value var="Sumiso.afinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <option-node nodeindex="11" keepShowing="yes" editor-x="1559" editor-y="34" x="1559" y="34">
+      <speak-player>Buena</speak-player>
+      <condition />
+      <child nodeindex="13" />
+      <speak-player>Mediocre</speak-player>
+      <condition />
+      <child nodeindex="14" />
+      <speak-player>Mala</speak-player>
+      <condition />
+      <child nodeindex="15" />
+      <speak-player>Nefasta</speak-player>
+      <condition />
+      <child nodeindex="10" />
+    </option-node>
+    <dialogue-node nodeindex="12" editor-x="2128" editor-y="35">
+      <end-conversation>
+        <effect>
+          <activate flag="Sumiso.presentado" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="13" editor-x="1779" editor-y="34">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="12" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="14" editor-x="1779" editor-y="228">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="12" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="15" editor-x="1779" editor-y="422">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="12" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Sumiso.presentacion.post">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Chulo.presentacion">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>#O ¿Hablo con él?</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" editor-x="283" editor-y="50" x="283" y="50">
+      <speak-player>Si</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>No</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="505" editor-y="50">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="505" editor-y="244">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <option-node nodeindex="4" keepShowing="yes" editor-x="740" editor-y="50" x="740" y="50">
+      <speak-player>Bueno</speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <speak-player>Mediocre</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Mala</speak-player>
+      <condition />
+      <child nodeindex="7" />
+      <speak-player>Nefasta</speak-player>
+      <condition />
+      <child nodeindex="8" />
+    </option-node>
+    <dialogue-node nodeindex="5" editor-x="960" editor-y="50">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="960" editor-y="244">
+      <end-conversation />
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="960" editor-y="438">
+      <end-conversation />
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="960" editor-y="632">
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Chulo.presentacion.post">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
