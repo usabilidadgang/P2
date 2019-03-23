@@ -175,24 +175,24 @@
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <either>
-            <active flag="Monitor.presentado" />
-            <inactive flag="Sumiso.presentado" />
-          </either>
+          <active flag="Sumiso.presentado" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="Vago.presentacion" />
+          <trigger-conversation idTarget="Sumiso.Tarea" />
           <condition />
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <active flag="Sumiso.presentado" />
-          <active flag="Monitor.presentado" />
-          <active flag="Chulo.presentado" />
+          <either>
+            <active flag="Monitor.presentado" />
+            <inactive flag="Sumiso.presentado" />
+          </either>
+          <inactive flag="Sumiso.TareaCompletada" />
+          <inactive flag="Sumiso.TareaFracaso" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="Sumiso.Tarea" />
+          <trigger-conversation idTarget="Sumiso.presentacion" />
           <condition />
         </effect>
       </talk-to>
@@ -442,7 +442,11 @@
       </exit>
     </exits>
     <characters>
-      <character-ref idTarget="Sumiso" x="600" y="805" scale="0.6936728" orientation="0" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Sumiso" x="600" y="805" scale="0.6936728" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Sumiso.presentado" />
+        </condition>
+      </character-ref>
     </characters>
   </scene>
   <scene id="Campamento.sur" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -543,28 +547,6 @@
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
-    <characters>
-      <character-ref idTarget="Vago" x="464" y="99" scale="0.1" orientation="0" layer="0" hasInfluenceArea="no">
-        <condition>
-          <active flag="VagoPresentado" />
-        </condition>
-      </character-ref>
-      <character-ref idTarget="Chulo" x="372" y="325" scale="0.08" orientation="0" layer="1" hasInfluenceArea="no">
-        <condition>
-          <active flag="Chulo.presentado" />
-        </condition>
-      </character-ref>
-      <character-ref idTarget="Sumiso" x="44" y="305" scale="0.07" orientation="0" layer="2" hasInfluenceArea="no">
-        <condition>
-          <active flag="Sumiso.presentado" />
-        </condition>
-      </character-ref>
-      <character-ref idTarget="Trabajador" x="920" y="329" scale="0.07" orientation="0" layer="3" hasInfluenceArea="no">
-        <condition>
-          <active flag="Chulo.presentado" />
-        </condition>
-      </character-ref>
-    </characters>
   </scene>
   <scene id="Pared" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -601,8 +583,21 @@
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="5" y="71" width="78" height="518" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="876" y="87" width="78" height="504" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
     <characters>
-      <character-ref idTarget="Sumiso" x="498" y="628" scale="0.4586336" orientation="0" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Sumiso" x="498" y="629" scale="0.4586336" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Sumiso.TareaCompletada" />
+          <inactive flag="Sumiso.TareaFracaso" />
+        </condition>
+      </character-ref>
     </characters>
   </scene>
   <scene id="Comedor" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -752,7 +747,7 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="9" editor-x="2205" editor-y="10">
+    <dialogue-node nodeindex="9" editor-x="2165" editor-y="82">
       <speak-player>Como ves tu tarea</speak-player>
       <condition />
       <speak-char idTarget="Vago">Pues ya veré</speak-char>
@@ -1129,6 +1124,93 @@
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
+  <graph-conversation id="Sumiso.Tarea">
+    <dialogue-node nodeindex="0" editor-x="138" editor-y="50">
+      <speak-player>¿Cómo vas con tu Tarea?</speak-player>
+      <condition />
+      <speak-char idTarget="Sumiso">Bueno... </speak-char>
+      <condition />
+      <speak-char idTarget="Sumiso">La verdad es que no muy bien...</speak-char>
+      <condition />
+      <speak-player>¿Y eso?</speak-player>
+      <condition />
+      <speak-char idTarget="Sumiso">Me está costando mucho…</speak-char>
+      <condition />
+      <speak-char idTarget="Sumiso">Creo que es una tarea muy complicada.</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" preListening="yes" editor-x="401" editor-y="46" x="401" y="46">
+      <speak-player>Lo único que quieres es vaguear y no hacerla. ¡Ponte a trabajar! </speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Sé que es difícil. Pero hay que hacerlo, Timothy. Pide ayuda a tus compañeros si lo necesitas.</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Este trabajo se tiene que hacer. Y lo tienes que hacer tú, Timothy. Apañatelas como puedas.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player>Timothy, yo sé perfectamente que puedes hacerlo. ¡Así que confía en tí mismo y ponte a ello!</speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="725" editor-y="11">
+      <speak-char idTarget="Sumiso">*Se pone a llorar y se va*</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="725" editor-y="189">
+      <speak-char idTarget="Sumiso">Vale, lo haré. Gracias.</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="725" editor-y="370">
+      <speak-char idTarget="Sumiso">Vale supervisor. Lo haré. Lo siento.</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="725" editor-y="550">
+      <speak-char idTarget="Sumiso">¡Sí! ¡Tienes razón! Yo puedo hacerlo. ¡Lo intentaré con todas mis ganas!</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="1032" editor-y="10">
+      <speak-player>Menudo pussy.</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="Sumiso.TareaFracaso" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1034" editor-y="189">
+      <speak-player>Buen Trabajo</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="Sumiso.TareaCompletada" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
   <graph-conversation id="Chulo.presentacion">
     <dialogue-node nodeindex="0" editor-x="20" editor-y="56">
       <speak-player>#O ¿Hablo con él?</speak-player>
@@ -1380,85 +1462,6 @@
       <speak-char idTarget="Monitor">Como has conseguido dar ganas al Jimeno</speak-char>
       <condition />
       <end-conversation />
-    </dialogue-node>
-  </graph-conversation>
-  <graph-conversation id="Sumiso.Tarea">
-    <dialogue-node nodeindex="0" editor-x="51" editor-y="50">
-      <speak-player>¿Cómo vas con tu Tarea?</speak-player>
-      <condition />
-      <speak-char idTarget="Sumiso">Bueno... </speak-char>
-      <condition />
-      <speak-char idTarget="Sumiso">La verdad es que no muy bien...</speak-char>
-      <condition />
-      <speak-player>¿Y eso?</speak-player>
-      <condition />
-      <speak-char idTarget="Sumiso">Me está costando mucho…</speak-char>
-      <condition />
-      <speak-char idTarget="Sumiso">Creo que es una tarea muy complicada.</speak-char>
-      <condition />
-      <child nodeindex="1" />
-    </dialogue-node>
-    <option-node nodeindex="1" preListening="yes" editor-x="485" editor-y="50" x="485" y="50">
-      <speak-player>Lo único que quieres es vaguear y no hacerla. ¡Ponte a trabajar! </speak-player>
-      <condition />
-      <child nodeindex="2" />
-      <speak-player>Sé que es difícil. Pero hay que hacerlo, Timothy. Pide ayuda a tus compañeros si lo necesitas.</speak-player>
-      <condition />
-      <child nodeindex="3" />
-      <speak-player>Este trabajo se tiene que hacer. Y lo tienes que hacer tú, Timothy. Apañatelas como puedas.</speak-player>
-      <condition />
-      <child nodeindex="4" />
-      <speak-player>Timothy, yo sé perfectamente que puedes hacerlo. ¡Así que confía en tí mismo y ponte a ello!</speak-player>
-      <condition />
-      <child nodeindex="5" />
-    </option-node>
-    <dialogue-node nodeindex="2" editor-x="725" editor-y="11">
-      <speak-char idTarget="Sumiso">*Se pone a llorar y se va*</speak-char>
-      <condition />
-      <end-conversation>
-        <effect>
-          <increment var="Sumiso.afinidad" value="0" />
-          <condition />
-          <activate flag="Sumiso.TareaFracaso" />
-          <condition />
-        </effect>
-      </end-conversation>
-    </dialogue-node>
-    <dialogue-node nodeindex="3" editor-x="725" editor-y="189">
-      <speak-char idTarget="Sumiso">Vale, lo haré. Gracias.</speak-char>
-      <condition />
-      <end-conversation>
-        <effect>
-          <increment var="Sumiso.afinidad" value="3" />
-          <condition />
-          <activate flag="Sumiso.TareaCompletada" />
-          <condition />
-        </effect>
-      </end-conversation>
-    </dialogue-node>
-    <dialogue-node nodeindex="4" editor-x="725" editor-y="370">
-      <speak-char idTarget="Sumiso">Vale supervisor. Lo haré. Lo siento.</speak-char>
-      <condition />
-      <end-conversation>
-        <effect>
-          <increment var="Sumiso.afinidad" value="5" />
-          <condition />
-          <activate flag="Sumiso.TareaCompletada" />
-          <condition />
-        </effect>
-      </end-conversation>
-    </dialogue-node>
-    <dialogue-node nodeindex="5" editor-x="725" editor-y="550">
-      <speak-char idTarget="Sumiso">¡Sí! ¡Tienes razón! Yo puedo hacerlo. ¡Lo intentaré con todas mis ganas!</speak-char>
-      <condition />
-      <end-conversation>
-        <effect>
-          <increment var="Sumiso.afinidad" value="10" />
-          <condition />
-          <activate flag="Sumiso.TareaCompletada" />
-          <condition />
-        </effect>
-      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="Chulo.Tarea">
