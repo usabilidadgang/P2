@@ -134,6 +134,13 @@
           <condition />
         </effect>
       </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: Chulo.Tarea</documentation>
+        <effect>
+          <trigger-conversation idTarget="Chulo.Tarea" />
+          <condition />
+        </effect>
+      </talk-to>
     </actions>
   </character>
   <character id="Sumiso">
@@ -168,21 +175,13 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Dispara Tarea</documentation>
         <condition>
           <inactive flag="Sumiso.presentado" />
           <active flag="Monitor.presentado" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="Sumiso.presentacion" />
-          <condition />
-        </effect>
-      </talk-to>
-      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <condition>
-          <active flag="Sumiso.presentado" />
-        </condition>
-        <effect>
-          <trigger-conversation idTarget="Sumiso.presentacion.post" />
+          <trigger-conversation idTarget="Sumiso.Tarea" />
           <condition />
         </effect>
       </talk-to>
@@ -285,6 +284,19 @@
       </talk-to>
     </actions>
   </character>
+  <scene id="MainMenu" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/special/EmptyBackground.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <objects>
+      <object-ref idTarget="StartButton" x="406" y="447" scale="1.81054" layer="0" hasInfluenceArea="no" />
+    </objects>
+  </scene>
   <scene id="Campamento.principal" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
@@ -301,13 +313,13 @@
           <active flag="Monitor.presentado" />
         </condition>
       </exit>
-      <exit rectangular="yes" x="543" y="720" width="519" height="57" hasInfluenceArea="no" idTarget="Campamento.sur" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="20" y="416" width="63" height="191" hasInfluenceArea="no" idTarget="Campamento.sur" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="Monitor.presentado" />
         </condition>
       </exit>
-      <exit rectangular="yes" x="11" y="388" width="61" height="194" hasInfluenceArea="no" idTarget="Campamento.oeste" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="223" y="337" width="98" height="110" hasInfluenceArea="no" idTarget="Campamento.oeste" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="Monitor.presentado" />
@@ -317,6 +329,15 @@
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="Monitor.presentado" />
+        </condition>
+      </exit>
+      <exit rectangular="yes" x="349" y="712" width="797" height="71" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+        <condition>
+          <active flag="Chulo.presentado" />
+          <active flag="Sumiso.presentado" />
+          <active flag="Trabajador.presentado" />
+          <active flag="VagoPresentado" />
         </condition>
       </exit>
     </exits>
@@ -362,131 +383,6 @@
       </exit>
     </exits>
   </scene>
-  <scene id="Campamento.norte" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/background/campamento-tlaco-2.jpg" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-    <exits>
-      <exit rectangular="yes" x="598" y="721" width="388" height="82" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
-      </exit>
-      <exit rectangular="yes" x="1060" y="444" width="100" height="100" hasInfluenceArea="no" idTarget="Campamento.norte.tienda" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
-      </exit>
-    </exits>
-  </scene>
-  <scene id="Campamento.sur" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/background/campamento1.jpg" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-    <exits>
-      <exit rectangular="yes" x="483" y="700" width="438" height="45" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
-      </exit>
-      <exit rectangular="yes" x="840" y="452" width="125" height="126" hasInfluenceArea="no" idTarget="Campamento.sur.tienda" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
-      </exit>
-    </exits>
-  </scene>
-  <scene id="Campamento.oeste" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/background/campamento-tlaco-4.jpg" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-    <exits>
-      <exit rectangular="yes" x="587" y="741" width="477" height="57" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
-      </exit>
-      <exit rectangular="yes" x="365" y="434" width="104" height="128" hasInfluenceArea="no" idTarget="Campamento.oeste.tienda" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
-      </exit>
-    </exits>
-  </scene>
-  <scene id="Pared" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="Tejado" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="Escombros" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="Cocina" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="MainMenu" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-    <objects>
-      <object-ref idTarget="StartButton" x="406" y="447" scale="1.81054" layer="0" hasInfluenceArea="no" />
-    </objects>
-  </scene>
-  <scene id="Campamento.oeste.tienda" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/background/dentro.jpg" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-    <exits>
-      <exit rectangular="yes" x="281" y="813" width="638" height="73" hasInfluenceArea="no" idTarget="Campamento.oeste" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
-      </exit>
-    </exits>
-    <characters>
-      <character-ref idTarget="Vago" x="581" y="783" scale="0.5" orientation="0" layer="0" hasInfluenceArea="no" />
-    </characters>
-  </scene>
   <scene id="Campamento.este.tienda" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
@@ -504,6 +400,24 @@
     <characters>
       <character-ref idTarget="Chulo" x="587" y="780" scale="0.4696003" orientation="0" layer="0" hasInfluenceArea="no" />
     </characters>
+  </scene>
+  <scene id="Campamento.norte" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/campamento-tlaco-2.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="598" y="721" width="388" height="82" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="1060" y="444" width="100" height="100" hasInfluenceArea="no" idTarget="Campamento.norte.tienda" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
   </scene>
   <scene id="Campamento.norte.tienda" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -523,6 +437,24 @@
       <character-ref idTarget="Sumiso" x="559" y="785" scale="0.4394809" orientation="0" layer="0" hasInfluenceArea="no" />
     </characters>
   </scene>
+  <scene id="Campamento.sur" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/campamento1.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="483" y="700" width="438" height="45" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="840" y="452" width="125" height="126" hasInfluenceArea="no" idTarget="Campamento.sur.tienda" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
   <scene id="Campamento.sur.tienda" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
@@ -539,6 +471,143 @@
     </exits>
     <characters>
       <character-ref idTarget="Trabajador" x="566" y="787" scale="0.5" orientation="0" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Campamento.oeste" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/campamento-tlaco-4.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="587" y="741" width="477" height="57" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="365" y="434" width="104" height="128" hasInfluenceArea="no" idTarget="Campamento.oeste.tienda" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="Campamento.oeste.tienda" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/dentro.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="281" y="813" width="638" height="73" hasInfluenceArea="no" idTarget="Campamento.oeste" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Vago" x="581" y="783" scale="0.5" orientation="0" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="HUDTareas" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/HUD.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="334" y="234" width="70" height="90" hasInfluenceArea="no" idTarget="Comedor" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+      </exit>
+      <exit rectangular="yes" x="10" y="194" width="76" height="104" hasInfluenceArea="no" idTarget="Puerta" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+      </exit>
+      <exit rectangular="yes" x="152" y="11" width="520" height="86" hasInfluenceArea="no" idTarget="Tejado" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+      </exit>
+      <exit rectangular="yes" x="840" y="220" width="102" height="126" hasInfluenceArea="no" idTarget="Pared" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+      </exit>
+      <exit rectangular="yes" x="193" y="447" width="539" height="49" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Vago" x="464" y="99" scale="0.1" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <active flag="VagoPresentado" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Chulo" x="372" y="325" scale="0.08" orientation="0" layer="1" hasInfluenceArea="no">
+        <condition>
+          <active flag="Chulo.presentado" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Sumiso" x="44" y="305" scale="0.07" orientation="0" layer="2" hasInfluenceArea="no">
+        <condition>
+          <active flag="Sumiso.presentado" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Trabajador" x="920" y="329" scale="0.07" orientation="0" layer="3" hasInfluenceArea="no">
+        <condition>
+          <active flag="Chulo.presentado" />
+        </condition>
+      </character-ref>
+    </characters>
+  </scene>
+  <scene id="Pared" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/ParedPintar.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Trabajador" x="214" y="193" scale="0.12" orientation="0" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Tejado" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/tejado.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Vago" x="101" y="120" scale="0.1417324" orientation="0" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Puerta" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Puerta.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Sumiso" x="498" y="628" scale="0.4586336" orientation="0" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Comedor" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/comedor.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Chulo" x="482" y="486" scale="0.43" orientation="0" layer="0" hasInfluenceArea="no" />
     </characters>
   </scene>
   <slidescene id="Introduccion" start="yes" idTarget="Campamento.principal" destinyX="-2147483648" destinyY="-2147483648" transitionTime="0" transitionType="0" next="new-scene" class="accesible" type="cutscene">
@@ -1047,70 +1116,62 @@
     <dialogue-node nodeindex="10" editor-x="1894" editor-y="624">
       <speak-char idTarget="Sumiso">#! BUAAAAAH</speak-char>
       <condition />
-      <child nodeindex="12" />
-      <effect>
-        <set-value var="Sumiso.afinidad" value="0" />
-        <condition />
-      </effect>
-    </dialogue-node>
-    <option-node nodeindex="11" random="yes" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="1559" editor-y="34" x="1559" y="34">
-      <speak-player>Timothy, yo sé perfectamente que puedes hacerlo</speak-player>
-      <condition />
-      <child nodeindex="13" />
-      <speak-player>Sé que es difícil. Pero hay que hacerlo</speak-player>
-      <condition />
-      <child nodeindex="14" />
-      <speak-player>Este trabajo se tiene que hacer</speak-player>
-      <condition />
-      <child nodeindex="15" />
-      <speak-player>Lo único que quieres es vaguear y no hacerla.</speak-player>
-      <condition />
-      <child nodeindex="10" />
-    </option-node>
-    <dialogue-node nodeindex="12" editor-x="2329" editor-y="67">
-      <speak-player>MARICON</speak-player>
-      <condition>
-        <inactive flag="Monitor.presentado" />
-      </condition>
       <end-conversation>
         <effect>
-          <activate flag="Sumiso.presentado" />
+          <set-value var="Sumiso.afinidad" value="0" />
           <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="13" editor-x="1889" editor-y="33">
+    <option-node nodeindex="11" random="yes" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="1559" editor-y="34" x="1559" y="34">
+      <speak-player>Timothy, yo sé perfectamente que puedes hacerlo</speak-player>
+      <condition />
+      <child nodeindex="12" />
+      <speak-player>Sé que es difícil. Pero hay que hacerlo</speak-player>
+      <condition />
+      <child nodeindex="13" />
+      <speak-player>Este trabajo se tiene que hacer</speak-player>
+      <condition />
+      <child nodeindex="14" />
+      <speak-player>Lo único que quieres es vaguear y no hacerla.</speak-player>
+      <condition />
+      <child nodeindex="10" />
+    </option-node>
+    <dialogue-node nodeindex="12" editor-x="1889" editor-y="33">
       <speak-player>¡Así que confía en tí mismo y ponte a ello!</speak-player>
       <condition />
       <speak-char idTarget="Sumiso">#! ¡Si! ¡Tienes razón! Yo puedo hacerlo. ¡Lo intentaré con todas mis ganas!</speak-char>
       <condition />
-      <child nodeindex="12" />
-      <effect>
-        <increment var="Sumiso.afinidad" value="10" />
-        <condition />
-      </effect>
+      <end-conversation>
+        <effect>
+          <increment var="Sumiso.afinidad" value="10" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="14" editor-x="1890" editor-y="228">
+    <dialogue-node nodeindex="13" editor-x="1890" editor-y="228">
       <speak-player>Timothy. Pide ayuda a tus compañeros si lo necesitas</speak-player>
       <condition />
       <speak-char idTarget="Sumiso">Vale, lo haré. Gracias.</speak-char>
       <condition />
-      <child nodeindex="12" />
-      <effect>
-        <increment var="Sumiso.afinidad" value="5" />
-        <condition />
-      </effect>
+      <end-conversation>
+        <effect>
+          <increment var="Sumiso.afinidad" value="5" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="15" editor-x="1894" editor-y="421">
+    <dialogue-node nodeindex="14" editor-x="1894" editor-y="421">
       <speak-player>Y lo tienes que hacer tú, Timothy. Apañatelas como puedas.</speak-player>
       <condition />
       <speak-char idTarget="Sumiso">Vale supervisor.Lo haré. Lo siento</speak-char>
       <condition />
-      <child nodeindex="12" />
-      <effect>
-        <increment var="Sumiso.afinidad" value="3" />
-        <condition />
-      </effect>
+      <end-conversation>
+        <effect>
+          <increment var="Sumiso.afinidad" value="3" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="Sumiso.presentacion.post">
@@ -1283,7 +1344,7 @@
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="Monitor.presentation">
-    <dialogue-node nodeindex="0" editor-x="474" editor-y="61">
+    <dialogue-node nodeindex="0" editor-x="394" editor-y="58">
       <speak-char idTarget="Monitor">¡Bienvenidos a este campamento! Hoy vamos a realizar una serie de actividades para mejorar la estancia de la gente que nos visita. ¡Y todo esto gracias a vosotros! Pero antes me gustaría que os presentarais.</speak-char>
       <condition />
       <speak-player>Hola</speak-player>
@@ -1321,7 +1382,7 @@
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="Monitor.conversacion">
-    <dialogue-node nodeindex="0" editor-x="120" editor-y="52">
+    <dialogue-node nodeindex="0" editor-x="283" editor-y="115">
       <speak-char idTarget="Monitor">Veo que todavia no has hablado con Tim</speak-char>
       <condition>
         <inactive flag="Sumiso.presentado" />
@@ -1371,6 +1432,90 @@
       <condition />
       <speak-char idTarget="Monitor">Como has conseguido dar ganas al Jimeno</speak-char>
       <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Sumiso.Tarea">
+    <dialogue-node nodeindex="0" editor-x="51" editor-y="50">
+      <speak-player>¿Cómo vas con tu Tarea?</speak-player>
+      <condition />
+      <speak-char idTarget="Sumiso">Bueno... </speak-char>
+      <condition />
+      <speak-char idTarget="Sumiso">La verdad es que no muy bien...</speak-char>
+      <condition />
+      <speak-player>¿Y eso?</speak-player>
+      <condition />
+      <speak-char idTarget="Sumiso">Me está costando mucho…</speak-char>
+      <condition />
+      <speak-char idTarget="Sumiso">Creo que es una tarea muy complicada.</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" editor-x="485" editor-y="50" x="485" y="50">
+      <speak-player>Lo único que quieres es vaguear y no hacerla. ¡Ponte a trabajar! </speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Sé que es difícil. Pero hay que hacerlo, Timothy. Pide ayuda a tus compañeros si lo necesitas.</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Este trabajo se tiene que hacer. Y lo tienes que hacer tú, Timothy. Apañatelas como puedas.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player>Timothy, yo sé perfectamente que puedes hacerlo. ¡Así que confía en tí mismo y ponte a ello!</speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="725" editor-y="11">
+      <speak-char idTarget="Sumiso">*Se pone a llorar y se va*</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <increment var="Sumiso.afinidad" value="0" />
+          <condition />
+          <activate flag="Sumiso.TareaFracaso" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="725" editor-y="189">
+      <speak-char idTarget="Sumiso">Vale, lo haré. Gracias.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <increment var="Sumiso.afinidad" value="3" />
+          <condition />
+          <activate flag="Sumiso.TareaCompletada" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="725" editor-y="370">
+      <speak-char idTarget="Sumiso">Vale supervisor. Lo haré. Lo siento.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <increment var="Sumiso.afinidad" value="5" />
+          <condition />
+          <activate flag="Sumiso.TareaCompletada" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="725" editor-y="550">
+      <speak-char idTarget="Sumiso">¡Sí! ¡Tienes razón! Yo puedo hacerlo. ¡Lo intentaré con todas mis ganas!</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <increment var="Sumiso.afinidad" value="10" />
+          <condition />
+          <activate flag="Sumiso.TareaCompletada" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Chulo.Tarea">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
