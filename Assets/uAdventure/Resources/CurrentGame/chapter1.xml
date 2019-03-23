@@ -283,6 +283,18 @@
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
+          <active flag="Chulo.RamaAcabada" />
+          <active flag="Sumiso.RamaAcabada" />
+          <active flag="Trabajador.RamaAcabada" />
+          <active flag="Vago.RamaAcabada" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Monitor.Evaluacion" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
           <inactive flag="Monitor.presentado" />
         </condition>
         <effect>
@@ -296,16 +308,6 @@
         </condition>
         <effect>
           <trigger-conversation idTarget="Monitor.conversacion" />
-          <condition />
-        </effect>
-      </talk-to>
-      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <documentation>Created with target conversation: Monitor.Evaluacion</documentation>
-        <condition>
-          <global-state-ref id="TodoTerminado" value="true" />
-        </condition>
-        <effect>
-          <trigger-conversation idTarget="Monitor.Evaluacion" />
           <condition />
         </effect>
       </talk-to>
@@ -334,25 +336,25 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="774" y="356" width="78" height="61" hasInfluenceArea="no" idTarget="Campamento.norte" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="776" y="292" width="182" height="129" hasInfluenceArea="no" idTarget="Campamento.norte" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="Monitor.presentado" />
         </condition>
       </exit>
-      <exit rectangular="yes" x="20" y="416" width="63" height="191" hasInfluenceArea="no" idTarget="Campamento.sur" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="8" y="302" width="117" height="333" hasInfluenceArea="no" idTarget="Campamento.sur" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="Monitor.presentado" />
         </condition>
       </exit>
-      <exit rectangular="yes" x="223" y="337" width="98" height="110" hasInfluenceArea="no" idTarget="Campamento.oeste" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="223" y="279" width="186" height="168" hasInfluenceArea="no" idTarget="Campamento.oeste" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="Monitor.presentado" />
         </condition>
       </exit>
-      <exit rectangular="yes" x="1434" y="337" width="54" height="223" hasInfluenceArea="no" idTarget="Campamento.este" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="1274" y="277" width="218" height="311" hasInfluenceArea="no" idTarget="Campamento.este" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="Monitor.presentado" />
@@ -644,9 +646,12 @@
       <exit rectangular="yes" x="876" y="87" width="78" height="504" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
+      <exit rectangular="yes" x="72" y="604" width="841" height="35" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
     </exits>
     <characters>
-      <character-ref idTarget="Sumiso" x="498" y="629" scale="0.4586336" orientation="0" layer="0" hasInfluenceArea="no">
+      <character-ref idTarget="Sumiso" x="498" y="597" scale="0.4586336" orientation="0" layer="0" hasInfluenceArea="no">
         <condition>
           <inactive flag="Sumiso.TareaCompletada" />
           <inactive flag="Sumiso.TareaFracaso" />
@@ -900,19 +905,25 @@
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="6" editor-x="894" editor-y="65">
-      <end-conversation>
-        <effect>
-          <activate flag="Vago.TrabajoCompletado" />
-          <condition />
-          <increment var="Exitos" value="1" />
-          <condition />
-        </effect>
-      </end-conversation>
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Vago.TrabajoCompletado" />
+        <condition />
+        <increment var="Exitos" value="1" />
+        <condition />
+      </effect>
     </dialogue-node>
     <dialogue-node nodeindex="7" editor-x="909" editor-y="392">
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Vago.TareaFracasa" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1163" editor-y="206">
       <end-conversation>
         <effect>
-          <activate flag="Vago.TareaFracasa" />
+          <activate flag="Vago.RamaAcabada" />
           <condition />
         </effect>
       </end-conversation>
@@ -1087,21 +1098,27 @@
     <dialogue-node nodeindex="6" editor-x="858" editor-y="40">
       <speak-player>Una cosa menos.</speak-player>
       <condition />
-      <end-conversation>
-        <effect>
-          <activate flag="Trabajador.TareaCompletada" />
-          <condition />
-          <increment var="Exitos" value="1" />
-          <condition />
-        </effect>
-      </end-conversation>
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Trabajador.TareaCompletada" />
+        <condition />
+        <increment var="Exitos" value="1" />
+        <condition />
+      </effect>
     </dialogue-node>
     <dialogue-node nodeindex="7" editor-x="869" editor-y="304">
       <speak-player>Ups...</speak-player>
       <condition />
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Trabajador.TareaFracasa" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1128" editor-y="153">
       <end-conversation>
         <effect>
-          <activate flag="Trabajador.TareaFracasa" />
+          <activate flag="Trabajador.RamaAcabada" />
           <condition />
         </effect>
       </end-conversation>
@@ -1262,7 +1279,7 @@
       <condition />
       <child nodeindex="5" />
     </option-node>
-    <dialogue-node nodeindex="2" editor-x="725" editor-y="11">
+    <dialogue-node nodeindex="2" editor-x="726" editor-y="13">
       <speak-char idTarget="Sumiso">*Se pone a llorar y se va*</speak-char>
       <condition />
       <child nodeindex="6" />
@@ -1298,24 +1315,30 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="6" editor-x="1032" editor-y="10">
+    <dialogue-node nodeindex="6" editor-x="992" editor-y="10">
       <speak-player>Menudo pussy.</speak-player>
       <condition />
-      <end-conversation>
-        <effect>
-          <activate flag="Sumiso.TareaFracaso" />
-          <condition />
-        </effect>
-      </end-conversation>
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Sumiso.TareaFracaso" />
+        <condition />
+      </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="7" editor-x="1034" editor-y="189">
+    <dialogue-node nodeindex="7" editor-x="991" editor-y="188">
       <speak-player>Buen Trabajo</speak-player>
       <condition />
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Sumiso.TareaCompletada" />
+        <condition />
+        <increment var="Exitos" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1232" editor-y="90">
       <end-conversation>
         <effect>
-          <activate flag="Sumiso.TareaCompletada" />
-          <condition />
-          <increment var="Exitos" value="1" />
+          <activate flag="Sumiso.RamaAcabada" />
           <condition />
         </effect>
       </end-conversation>
@@ -1487,21 +1510,27 @@
     <dialogue-node nodeindex="6" editor-x="878" editor-y="45">
       <speak-player>Consegui domar a este...</speak-player>
       <condition />
-      <end-conversation>
-        <effect>
-          <activate flag="Chulo.TareaFinalizada" />
-          <condition />
-          <increment var="Exitos" value="1" />
-          <condition />
-        </effect>
-      </end-conversation>
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Chulo.TareaFinalizada" />
+        <condition />
+        <increment var="Exitos" value="1" />
+        <condition />
+      </effect>
     </dialogue-node>
     <dialogue-node nodeindex="7" editor-x="899" editor-y="475">
       <speak-player>Creo que la he pifiado</speak-player>
       <condition />
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Chulo.TareaFracasa" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1152" editor-y="215">
       <end-conversation>
         <effect>
-          <activate flag="Chulo.TareaFracasa" />
+          <activate flag="Chulo.RamaAcabada" />
           <condition />
         </effect>
       </end-conversation>
@@ -1546,7 +1575,7 @@
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="Monitor.conversacion">
-    <dialogue-node nodeindex="0" editor-x="275" editor-y="59">
+    <dialogue-node nodeindex="0" editor-x="302" editor-y="98">
       <speak-char idTarget="Monitor">Veo que todavia no has hablado con Tim</speak-char>
       <condition>
         <inactive flag="Sumiso.presentado" />
@@ -1563,6 +1592,22 @@
       <condition>
         <inactive flag="VagoPresentado" />
       </condition>
+      <speak-player>Deivid debe acabar.</speak-player>
+      <condition>
+        <inactive flag="Trabajador.RamaAcabada" />
+      </condition>
+      <speak-player>Timoty debe acabar.</speak-player>
+      <condition>
+        <inactive flag="Sumiso.RamaAcabada" />
+      </condition>
+      <speak-player>Bolt debe acabar</speak-player>
+      <condition>
+        <inactive flag="Trabajador.RamaAcabada" />
+      </condition>
+      <speak-player>Jimeno debe acabar.</speak-player>
+      <condition>
+        <inactive flag="Vago.RamaAcabada" />
+      </condition>
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
@@ -1577,6 +1622,7 @@
       <speak-char idTarget="Monitor">Con Timoty normalito por lo que veo...</speak-char>
       <condition>
         <greater-equals-than var="Sumiso.afinidad" value="10" />
+        <less-than var="Chulo.afinidad" value="20" />
       </condition>
       <speak-char idTarget="Monitor">Has hecho llorar a Timoty merluzo. ¿Como eres tan desgraciado?</speak-char>
       <condition>
@@ -1589,6 +1635,7 @@
       <speak-char idTarget="Monitor">Veo que con Deivid has conseguido no matarte, bien hecho.</speak-char>
       <condition>
         <greater-equals-than var="Chulo.afinidad" value="10" />
+        <less-than var="Chulo.afinidad" value="20" />
       </condition>
       <speak-char idTarget="Monitor">Por ahí hay alguien cuyo nombre empieza por D y que quiere partirte la cara.</speak-char>
       <condition>
@@ -1601,6 +1648,7 @@
       <speak-char idTarget="Monitor">Bolt esta contento, tenía miedo de que se motivara demasiado y saliera defraudado.</speak-char>
       <condition>
         <greater-equals-than var="Trabajador.afinidad" value="10" />
+        <less-than var="Trabajador.afinidad" value="20" />
       </condition>
       <speak-char idTarget="Monitor">Bolt me ha dicho que eres un pleb al que no se le debe dirigir la palabra.</speak-char>
       <condition>
@@ -1613,6 +1661,7 @@
       <speak-char idTarget="Monitor">Con el horchato de Jimeno no esperaba mucho más por tu parte.</speak-char>
       <condition>
         <greater-equals-than var="VagoAfinidad" value="10" />
+        <less-than var="VagoAfinidad" value="20" />
       </condition>
       <speak-char idTarget="Monitor">Se nos ha caido el vago por tu culpa, deberías saber como tratar a la gente.</speak-char>
       <condition>
@@ -1646,24 +1695,4 @@
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
-  <global-state id="TodoTerminado">
-    <documentation>
-    </documentation>
-    <either>
-      <active flag="Chulo.TareaFinalizada" />
-      <active flag="Chulo.TareaFracasa" />
-    </either>
-    <either>
-      <active flag="Sumiso.TareaCompletada" />
-      <active flag="Sumiso.TareaFracaso" />
-    </either>
-    <either>
-      <active flag="Trabajador.TareaCompletada" />
-      <active flag="Trabajador.TareaFracasa" />
-    </either>
-    <either>
-      <active flag="Vago.TareaFracasa" />
-      <active flag="Vago.TrabajoCompletado" />
-    </either>
-  </global-state>
 </eAdventure>
