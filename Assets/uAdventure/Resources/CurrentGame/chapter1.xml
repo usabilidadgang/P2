@@ -299,6 +299,16 @@
           <condition />
         </effect>
       </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: Monitor.Evaluacion</documentation>
+        <condition>
+          <global-state-ref id="TodoTerminado" value="true" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Monitor.Evaluacion" />
+          <condition />
+        </effect>
+      </talk-to>
     </actions>
   </character>
   <scene id="MainMenu" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -894,6 +904,8 @@
         <effect>
           <activate flag="Vago.TrabajoCompletado" />
           <condition />
+          <increment var="Exitos" value="1" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -1078,6 +1090,8 @@
       <end-conversation>
         <effect>
           <activate flag="Trabajador.TareaCompletada" />
+          <condition />
+          <increment var="Exitos" value="1" />
           <condition />
         </effect>
       </end-conversation>
@@ -1301,6 +1315,8 @@
         <effect>
           <activate flag="Sumiso.TareaCompletada" />
           <condition />
+          <increment var="Exitos" value="1" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -1475,6 +1491,8 @@
         <effect>
           <activate flag="Chulo.TareaFinalizada" />
           <condition />
+          <increment var="Exitos" value="1" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -1533,54 +1551,119 @@
       <condition>
         <inactive flag="Sumiso.presentado" />
       </condition>
-      <speak-char idTarget="Monitor">Has hecho llorar a Tim, gentuzo</speak-char>
-      <condition>
-        <active flag="Sumiso.presentado" />
-        <equals var="Sumiso.afinidad" value="0" />
-      </condition>
-      <speak-char idTarget="Monitor">Ya me ha contado Tim que has hablado con el</speak-char>
-      <condition>
-        <active flag="Sumiso.presentado" />
-        <equals var="Sumiso.afinidad" value="0" />
-      </condition>
-      <speak-char idTarget="Monitor">Tim te aprecia mucho</speak-char>
-      <condition>
-        <equals var="Sumiso.afinidad" value="10" />
-      </condition>
       <speak-char idTarget="Monitor">Vete a hablar con Bolt</speak-char>
       <condition>
         <inactive flag="Trabajador.presentado" />
       </condition>
-      <speak-char idTarget="Monitor">Me ha dicho Bolt que le has tocado las narices</speak-char>
-      <condition>
-        <active flag="Trabajador.presentado" />
-        <equals var="Trabajador.afinidad" value="0" />
-      </condition>
-      <speak-char idTarget="Monitor">Te he visto que has ido a hablar con Bolt</speak-char>
-      <condition />
-      <speak-char idTarget="Monitor">Bolt esta encantado contigo</speak-char>
-      <condition />
       <speak-char idTarget="Monitor">Deivid esta por ahi</speak-char>
       <condition>
         <inactive flag="Chulo.presentado" />
       </condition>
-      <speak-char idTarget="Monitor">Hay alguien que su nombre empieza por D te quiere partir la cara</speak-char>
-      <condition />
-      <speak-char idTarget="Monitor">¿Que tal con Deivid?</speak-char>
-      <condition />
-      <speak-char idTarget="Monitor">Me sorprende que le hayas conseguido caer bien a Deivid</speak-char>
-      <condition />
       <speak-char idTarget="Monitor">El jimeno está por ahi planchado</speak-char>
       <condition>
         <inactive flag="VagoPresentado" />
       </condition>
-      <speak-char idTarget="Monitor">Como has hecho para quitarle las pocas ganas que tenia Jimeno</speak-char>
-      <condition />
-      <speak-char idTarget="Monitor">Como ha ido con el Jimeno</speak-char>
-      <condition />
-      <speak-char idTarget="Monitor">Como has conseguido dar ganas al Jimeno</speak-char>
-      <condition />
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
+  <graph-conversation id="Monitor.Evaluacion">
+    <dialogue-node nodeindex="0" editor-x="97" editor-y="46">
+      <speak-char idTarget="Monitor">Vamos a ver que tal te has llevado con tus colegas.</speak-char>
+      <condition />
+      <speak-char idTarget="Monitor">Le caes muy bien a Timoty.</speak-char>
+      <condition>
+        <equals var="Sumiso.afinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Con Timoty normalito por lo que veo...</speak-char>
+      <condition>
+        <greater-equals-than var="Sumiso.afinidad" value="10" />
+      </condition>
+      <speak-char idTarget="Monitor">Has hecho llorar a Timoty merluzo. ¿Como eres tan desgraciado?</speak-char>
+      <condition>
+        <less-equals-than var="Sumiso.afinidad" value="9" />
+      </condition>
+      <speak-char idTarget="Monitor">Me sorprende que consiguieras llevarte bien con Deivid.</speak-char>
+      <condition>
+        <equals var="Chulo.afinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Veo que con Deivid has conseguido no matarte, bien hecho.</speak-char>
+      <condition>
+        <greater-equals-than var="Chulo.afinidad" value="10" />
+      </condition>
+      <speak-char idTarget="Monitor">Por ahí hay alguien cuyo nombre empieza por D y que quiere partirte la cara.</speak-char>
+      <condition>
+        <less-equals-than var="Chulo.afinidad" value="9" />
+      </condition>
+      <speak-char idTarget="Monitor">Has sacado lo mejor de Bolt, felicidades.</speak-char>
+      <condition>
+        <equals var="Trabajador.afinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Bolt esta contento, tenía miedo de que se motivara demasiado y saliera defraudado.</speak-char>
+      <condition>
+        <greater-equals-than var="Trabajador.afinidad" value="10" />
+      </condition>
+      <speak-char idTarget="Monitor">Bolt me ha dicho que eres un pleb al que no se le debe dirigir la palabra.</speak-char>
+      <condition>
+        <less-equals-than var="Trabajador.afinidad" value="9" />
+      </condition>
+      <speak-char idTarget="Monitor">Jimeno ha trabajado bien. ¿Como te las has apañado para darle vida a ese muermo?</speak-char>
+      <condition>
+        <equals var="VagoAfinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Con el horchato de Jimeno no esperaba mucho más por tu parte.</speak-char>
+      <condition>
+        <greater-equals-than var="VagoAfinidad" value="10" />
+      </condition>
+      <speak-char idTarget="Monitor">Se nos ha caido el vago por tu culpa, deberías saber como tratar a la gente.</speak-char>
+      <condition>
+        <less-equals-than var="VagoAfinidad" value="9" />
+      </condition>
+      <child nodeindex="1" />
+    </dialogue-node>
+    <dialogue-node nodeindex="1" editor-x="811" editor-y="50">
+      <speak-char idTarget="Monitor">Sin importar que tal te llevaras veamos si se ha hecho todo...</speak-char>
+      <condition />
+      <speak-player>Increible, todo hecho, felicidades eres un buen lider.</speak-player>
+      <condition>
+        <equals var="Exitos" value="4" />
+      </condition>
+      <speak-player>No esta todo, deberías replantearte como has lidiado con tus compañeros, te toca a ti acabarlo.</speak-player>
+      <condition>
+        <equals var="Exitos" value="3" />
+      </condition>
+      <speak-player>Pff falta la mitad por hacer chaval, esto es unicamente culpa tuya.</speak-player>
+      <condition>
+        <equals var="Exitos" value="2" />
+      </condition>
+      <speak-player>No mereces ni el aire que respiras con una sola tarea completada.</speak-player>
+      <condition>
+        <equals var="Exitos" value="1" />
+      </condition>
+      <speak-player>¿Como te las has apañado para no conseguir nada? INUTIL.</speak-player>
+      <condition>
+        <equals var="Exitos" value="0" />
+      </condition>
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <global-state id="TodoTerminado">
+    <documentation>
+    </documentation>
+    <either>
+      <active flag="Chulo.TareaFinalizada" />
+      <active flag="Chulo.TareaFracasa" />
+    </either>
+    <either>
+      <active flag="Sumiso.TareaCompletada" />
+      <active flag="Sumiso.TareaFracaso" />
+    </either>
+    <either>
+      <active flag="Trabajador.TareaCompletada" />
+      <active flag="Trabajador.TareaFracasa" />
+    </either>
+    <either>
+      <active flag="Vago.TareaFracasa" />
+      <active flag="Vago.TrabajoCompletado" />
+    </either>
+  </global-state>
 </eAdventure>
