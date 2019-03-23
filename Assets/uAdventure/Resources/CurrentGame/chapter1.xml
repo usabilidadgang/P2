@@ -117,26 +117,23 @@
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <inactive flag="Chulo.presentado" />
-          <active flag="Monitor.presentado" />
+          <active flag="Chulo.presentado" />
+          <either>
+            <inactive flag="Chulo.TareaFinalizada" />
+            <inactive flag="Sumiso.TareaFracaso" />
+          </either>
         </condition>
         <effect>
-          <trigger-conversation idTarget="Chulo.presentacion" />
+          <trigger-conversation idTarget="Chulo.Tarea" />
           <condition />
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <active flag="Chulo.presentado" />
+          <inactive flag="Chulo.presentado" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="Chulo.presentacion.post" />
-          <condition />
-        </effect>
-      </talk-to>
-      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <effect>
-          <trigger-conversation idTarget="Chulo.Tarea" />
+          <trigger-conversation idTarget="Chulo.presentacion" />
           <condition />
         </effect>
       </talk-to>
@@ -231,20 +228,23 @@
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <active flag="Monitor.presentado" />
-          <inactive flag="Trabajador.presentado" />
+          <active flag="Trabajador.presentado" />
+          <either>
+            <inactive flag="Trabajador.TareaCompletada" />
+            <inactive flag="Trabajador.TareaFracasa" />
+          </either>
         </condition>
         <effect>
-          <trigger-conversation idTarget="Trabajador.presentacion" />
+          <trigger-conversation idTarget="Trabajador.Tarea" />
           <condition />
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <active flag="Trabajador.presentado" />
+          <inactive flag="Trabajador.presentado" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="Trabajador.presentacion.post" />
+          <trigger-conversation idTarget="Trabajador.presentacion" />
           <condition />
         </effect>
       </talk-to>
@@ -351,10 +351,11 @@
       <exit rectangular="yes" x="349" y="712" width="797" height="71" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
-          <either>
-            <active flag="Sumiso.presentado" />
-            <active flag="VagoPresentado" />
-          </either>
+          <active flag="Chulo.presentado" />
+          <active flag="Monitor.presentado" />
+          <active flag="Sumiso.presentado" />
+          <active flag="Trabajador.presentado" />
+          <active flag="VagoPresentado" />
         </condition>
       </exit>
     </exits>
@@ -415,7 +416,11 @@
       </exit>
     </exits>
     <characters>
-      <character-ref idTarget="Chulo" x="587" y="780" scale="0.4696003" orientation="0" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Chulo" x="587" y="780" scale="0.4696003" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Chulo.presentado" />
+        </condition>
+      </character-ref>
     </characters>
   </scene>
   <scene id="Campamento.norte" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -491,7 +496,11 @@
       </exit>
     </exits>
     <characters>
-      <character-ref idTarget="Trabajador" x="566" y="787" scale="0.5" orientation="0" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Trabajador" x="566" y="787" scale="0.5" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Trabajador.presentado" />
+        </condition>
+      </character-ref>
     </characters>
   </scene>
   <scene id="Campamento.oeste" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -570,8 +579,19 @@
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="1" y="167" width="271" height="16" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
     <characters>
-      <character-ref idTarget="Trabajador" x="214" y="193" scale="0.12" orientation="0" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Trabajador" x="206" y="161" scale="0.09" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <active flag="Trabajador.presentado" />
+          <inactive flag="Trabajador.TareaFracasa" />
+          <inactive flag="Trabajador.TareaCompletada" />
+        </condition>
+      </character-ref>
     </characters>
   </scene>
   <scene id="Tejado" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -585,7 +605,7 @@
     <default-initial-position x="400" y="450" />
     <exits>
       <exit rectangular="yes" x="7" y="147" width="257" height="31" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" />
+        <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
     <characters>
@@ -593,6 +613,7 @@
         <condition>
           <inactive flag="Vago.TareaFracasa" />
           <inactive flag="Vago.TrabajoCompletado" />
+          <active flag="VagoPresentado" />
         </condition>
       </character-ref>
     </characters>
@@ -619,6 +640,7 @@
         <condition>
           <inactive flag="Sumiso.TareaCompletada" />
           <inactive flag="Sumiso.TareaFracaso" />
+          <active flag="Sumiso.presentado" />
         </condition>
       </character-ref>
     </characters>
@@ -632,8 +654,22 @@
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="2" y="0" width="77" height="447" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="87" y="414" width="519" height="32" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
     <characters>
-      <character-ref idTarget="Chulo" x="482" y="486" scale="0.43" orientation="0" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Chulo" x="511" y="409" scale="0.31" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <active flag="Chulo.presentado" />
+          <inactive flag="Chulo.TareaFracasa" />
+          <inactive flag="Chulo.TareaFinalizada" />
+        </condition>
+      </character-ref>
     </characters>
   </scene>
   <slidescene id="Introduccion" start="yes" idTarget="Campamento.principal" destinyX="-2147483648" destinyY="-2147483648" transitionTime="0" transitionType="0" next="new-scene" class="accesible" type="cutscene">
@@ -897,22 +933,26 @@
       <condition />
       <end-conversation />
     </dialogue-node>
-    <option-node nodeindex="4" keepShowing="yes" preListening="yes" editor-x="876" editor-y="47" x="876" y="47">
-      <speak-player>¿Tienes algún problema? </speak-player>
+    <option-node nodeindex="4" keepShowing="yes" preListening="yes" editor-x="843" editor-y="48" x="843" y="48">
+      <speak-player>¿Puedo ayudarte con algo?</speak-player>
       <condition />
       <child nodeindex="5" />
-      <speak-player>Mediocre</speak-player>
+      <speak-player>¿Qué ocurre?</speak-player>
       <condition />
       <child nodeindex="6" />
-      <speak-player>Mala</speak-player>
+      <speak-player>Pensaba que estabas motivado a trabajar…</speak-player>
       <condition />
       <child nodeindex="7" />
       <speak-player>Nefasta</speak-player>
       <condition />
       <child nodeindex="8" />
     </option-node>
-    <dialogue-node nodeindex="5" editor-x="1120" editor-y="28">
-      <speak-player>¿Puedo ayudarte con algo?</speak-player>
+    <dialogue-node nodeindex="5" editor-x="1115" editor-y="14">
+      <speak-char idTarget="Trabajador">Sí… esto es bastante aburrido y me va a llevar mucho tiempo, esperaba hacer algo más complejo que solo pintar una pared.</speak-char>
+      <condition />
+      <speak-player>Tranqui, ve para allá y se nos ocurrirá algo</speak-player>
+      <condition />
+      <speak-char idTarget="Trabajador">Bueno vale, todo es ponerse.</speak-char>
       <condition />
       <child nodeindex="9" />
       <effect>
@@ -920,9 +960,12 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="6" editor-x="1115" editor-y="240">
-      <speak-player>
-      </speak-player>
+    <dialogue-node nodeindex="6" editor-x="1116" editor-y="239">
+      <speak-char idTarget="Trabajador">Pintar la pared no es lo que tenía en mente cuando vine aquí, siento que estoy desperdiciando mi tiempo.</speak-char>
+      <condition />
+      <speak-player>No lo mires así, tu intentalo.</speak-player>
+      <condition />
+      <speak-char idTarget="Trabajador">Ok, a ver si me motivo.</speak-char>
       <condition />
       <child nodeindex="9" />
       <effect>
@@ -930,9 +973,10 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="7" editor-x="1115" editor-y="434">
-      <speak-player>
-      </speak-player>
+    <dialogue-node nodeindex="7" editor-x="1116" editor-y="463">
+      <speak-char idTarget="Trabajador">No mal pienses, lo estoy. Pero creo que sería de más ayuda haciendo algo más complicado.</speak-char>
+      <condition />
+      <speak-player>Va, voy para allá.</speak-player>
       <condition />
       <child nodeindex="9" />
       <effect>
@@ -940,50 +984,18 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="8" editor-x="1115" editor-y="628">
-      <speak-player>
-      </speak-player>
+    <dialogue-node nodeindex="8" editor-x="1116" editor-y="690">
+      <speak-char idTarget="Trabajador">¿Ya estamos con las quejas?</speak-char>
       <condition />
-      <child nodeindex="10" />
+      <speak-player>Oye, no seas borde. Vale ya me pongo hacer esto... </speak-player>
+      <condition />
+      <child nodeindex="9" />
       <effect>
         <set-value var="Trabajador.afinidad" value="0" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="9" editor-x="1453" editor-y="192">
-      <speak-player>
-      </speak-player>
-      <condition />
-      <child nodeindex="11" />
-    </dialogue-node>
-    <dialogue-node nodeindex="10" editor-x="1952" editor-y="707">
-      <speak-player>
-      </speak-player>
-      <condition />
-      <child nodeindex="12" />
-      <effect>
-        <set-value var="Trabajador.afinidad" value="0" />
-        <condition />
-      </effect>
-    </dialogue-node>
-    <option-node nodeindex="11" keepShowing="yes" preListening="yes" editor-x="1726" editor-y="175" x="1726" y="175">
-      <speak-player>Buena</speak-player>
-      <condition />
-      <child nodeindex="13" />
-      <speak-player>Mediocre</speak-player>
-      <condition />
-      <child nodeindex="14" />
-      <speak-player>Mala</speak-player>
-      <condition />
-      <child nodeindex="15" />
-      <speak-player>Nefasta</speak-player>
-      <condition />
-      <child nodeindex="10" />
-    </option-node>
-    <dialogue-node nodeindex="12" editor-x="2346" editor-y="317">
-      <speak-player>
-      </speak-player>
-      <condition />
+    <dialogue-node nodeindex="9" editor-x="1407" editor-y="13">
       <end-conversation>
         <effect>
           <activate flag="Trabajador.presentado" />
@@ -991,35 +1003,94 @@
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="13" editor-x="1955" editor-y="126">
-      <speak-player>
-      </speak-player>
+  </graph-conversation>
+  <graph-conversation id="Trabajador.Tarea">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Trabajador">Pues aquí estamos.</speak-char>
       <condition />
-      <child nodeindex="12" />
+      <speak-player>Plantéatelo de esta forma...</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" random="yes" preListening="yes" editor-x="328" editor-y="39" x="328" y="39">
+      <speak-player>Miralo desde un punto de vista creativo.</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player> Piensa en ello como un juego.</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Acaba lo antes posible y a otra cosa.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player>Has llegado de chulo y te toca apechugar.</speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="588" editor-y="38">
+      <speak-char idTarget="Trabajador">¿Cómo?</speak-char>
+      <condition />
+      <speak-player>Tienes varios botes de pintura, currate algo chulo en la pared y que quede bien, seguro que les gusta.</speak-player>
+      <condition />
+      <speak-player>No tiene por que ser una aburrida pared blanca.</speak-player>
+      <condition />
+      <speak-player>Eso estaría genial, suena más interesante.</speak-player>
+      <condition />
+      <child nodeindex="6" />
       <effect>
         <increment var="Trabajador.afinidad" value="10" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="14" editor-x="1955" editor-y="319">
-      <speak-player>
-      </speak-player>
+    <dialogue-node nodeindex="3" editor-x="590" editor-y="283">
+      <speak-char idTarget="Trabajador">Em… </speak-char>
       <condition />
-      <child nodeindex="12" />
+      <speak-player>Inventate algún juego, como que vas invadiendo un territorio enemigo pintando la pared. ¿No has jugado al Splatoon?</speak-player>
+      <condition />
+      <speak-char idTarget="Trabajador">No suena muy ahí… pero vale, voy a intentarlo.</speak-char>
+      <condition />
+      <child nodeindex="6" />
       <effect>
         <increment var="Trabajador.afinidad" value="5" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="15" editor-x="1947" editor-y="510">
-      <speak-player>
-      </speak-player>
+    <dialogue-node nodeindex="4" editor-x="589" editor-y="516">
+      <speak-char idTarget="Trabajador">Jo, bueno, que remedio, a esto hemos venido.</speak-char>
       <condition />
-      <child nodeindex="12" />
+      <child nodeindex="6" />
       <effect>
         <increment var="Trabajador.afinidad" value="3" />
         <condition />
       </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="587" editor-y="704">
+      <speak-char idTarget="Trabajador">¿QUÉ?</speak-char>
+      <condition />
+      <speak-player>Vas de motivado pero cuando te toca algo que no te gusta solo sabes quejarte.</speak-player>
+      <condition />
+      <speak-char idTarget="Trabajador">Mira, déjame en paz. No he venido aqui para esto.</speak-char>
+      <condition />
+      <child nodeindex="7" />
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="858" editor-y="40">
+      <speak-player>Una cosa menos.</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="Trabajador.TareaCompletada" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="869" editor-y="304">
+      <speak-player>Ups...</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="Trabajador.TareaFracasa" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="Trabajador.presentacion.post">
@@ -1248,36 +1319,38 @@
       <condition />
       <child nodeindex="3" />
     </option-node>
-    <dialogue-node nodeindex="2" editor-x="474" editor-y="52">
+    <dialogue-node nodeindex="2" editor-x="518" editor-y="39">
       <speak-player>Ey tio yo me encargo de ver como va todo y luego hacer la comida</speak-player>
       <condition />
       <speak-char idTarget="Chulo">que pasa loco soy Deivid</speak-char>
       <condition />
+      <speak-player>Vengo a decirte que vayas a hacer tu tarea.</speak-player>
+      <condition />
+      <speak-player>No me controles tio, yo soy un alma libre.</speak-player>
+      <condition />
       <child nodeindex="4" />
     </dialogue-node>
     <dialogue-node nodeindex="3" editor-x="507" editor-y="310">
-      <speak-player>
-      </speak-player>
+      <speak-player>Mejor despues...</speak-player>
       <condition />
       <end-conversation />
     </dialogue-node>
-    <option-node nodeindex="4" keepShowing="yes" preListening="yes" editor-x="788" editor-y="50" x="788" y="50">
-      <speak-player>Bueno</speak-player>
+    <option-node nodeindex="4" keepShowing="yes" preListening="yes" editor-x="765" editor-y="48" x="765" y="48">
+      <speak-player>Como el sol cuando amanece yo soy liibre…. </speak-player>
       <condition />
       <child nodeindex="5" />
-      <speak-player>Mediocre</speak-player>
+      <speak-player>Claro, todos somos libres en la tierra del señor.</speak-player>
       <condition />
       <child nodeindex="6" />
-      <speak-player>Mala</speak-player>
+      <speak-player> Eres libre siempre que hagas la tarea.</speak-player>
       <condition />
       <child nodeindex="7" />
-      <speak-player>Nefasta</speak-player>
+      <speak-player>Por lo que veo eres libre de ser imbécil.</speak-player>
       <condition />
       <child nodeindex="8" />
     </option-node>
     <dialogue-node nodeindex="5" editor-x="1021" editor-y="47">
-      <speak-player>
-      </speak-player>
+      <speak-char idTarget="Chulo">Veo que molas, tío. Podremos convivir.</speak-char>
       <condition />
       <child nodeindex="9" />
       <effect>
@@ -1286,8 +1359,7 @@
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="6" editor-x="1023" editor-y="240">
-      <speak-player>
-      </speak-player>
+      <speak-char idTarget="Chulo">Hmm, eres un bicho raro. Déjame en paz y te dejaré en paz.</speak-char>
       <condition />
       <child nodeindex="9" />
       <effect>
@@ -1295,9 +1367,8 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="7" editor-x="1054" editor-y="435">
-      <speak-player>
-      </speak-player>
+    <dialogue-node nodeindex="7" editor-x="1025" editor-y="432">
+      <speak-char idTarget="Chulo">¿Ya nos han mandado otro sargento? No me gusta la gente que me manda, o sea que no me gustas tú.</speak-char>
       <condition />
       <child nodeindex="9" />
       <effect>
@@ -1305,49 +1376,17 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="8" editor-x="1035" editor-y="620">
-      <speak-player>
-      </speak-player>
+    <dialogue-node nodeindex="8" editor-x="1024" editor-y="619">
+      <speak-char idTarget="Chulo">Vete de aquí antes de que te abra la cabeza</speak-char>
       <condition />
-      <child nodeindex="10" />
+      <child nodeindex="9" />
       <effect>
         <set-value var="Chulo.afinidad" value="0" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="9" editor-x="1283" editor-y="40">
-      <speak-player>
-      </speak-player>
-      <condition />
-      <child nodeindex="11" />
-    </dialogue-node>
-    <dialogue-node nodeindex="10" editor-x="1802" editor-y="619">
-      <speak-player>
-      </speak-player>
-      <condition />
-      <child nodeindex="12" />
-      <effect>
-        <set-value var="Chulo.afinidad" value="0" />
-        <condition />
-      </effect>
-    </dialogue-node>
-    <option-node nodeindex="11" keepShowing="yes" preListening="yes" editor-x="1527" editor-y="28" x="1527" y="28">
-      <speak-player>Buena</speak-player>
-      <condition />
-      <child nodeindex="13" />
-      <speak-player>Mediocre</speak-player>
-      <condition />
-      <child nodeindex="14" />
-      <speak-player>Mala</speak-player>
-      <condition />
-      <child nodeindex="15" />
-      <speak-player>Nefasta</speak-player>
-      <condition />
-      <child nodeindex="10" />
-    </option-node>
-    <dialogue-node nodeindex="12" editor-x="2072" editor-y="47">
-      <speak-player>
-      </speak-player>
+    <dialogue-node nodeindex="9" editor-x="1413" editor-y="32">
+      <speak-player>#! Te veo en el comedor.</speak-player>
       <condition />
       <end-conversation>
         <effect>
@@ -1356,36 +1395,6 @@
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="13" editor-x="1847" editor-y="49">
-      <speak-player>
-      </speak-player>
-      <condition />
-      <child nodeindex="12" />
-      <effect>
-        <increment var="Chulo.afinidad" value="10" />
-        <condition />
-      </effect>
-    </dialogue-node>
-    <dialogue-node nodeindex="14" editor-x="1845" editor-y="238">
-      <speak-player>
-      </speak-player>
-      <condition />
-      <child nodeindex="12" />
-      <effect>
-        <increment var="Chulo.afinidad" value="5" />
-        <condition />
-      </effect>
-    </dialogue-node>
-    <dialogue-node nodeindex="15" editor-x="1808" editor-y="429">
-      <speak-player>
-      </speak-player>
-      <condition />
-      <child nodeindex="12" />
-      <effect>
-        <increment var="Chulo.afinidad" value="3" />
-        <condition />
-      </effect>
-    </dialogue-node>
   </graph-conversation>
   <graph-conversation id="Chulo.presentacion.post">
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
@@ -1393,6 +1402,91 @@
       </speak-player>
       <condition />
       <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Chulo.Tarea">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>Necesito que hagas lo que te han pedido.</speak-player>
+      <condition />
+      <speak-player>No es mucha cosa </speak-player>
+      <condition />
+      <speak-char idTarget="Chulo">¿Qué era?</speak-char>
+      <condition />
+      <speak-player> Te tocaba barrer el comedor </speak-player>
+      <condition />
+      <speak-char idTarget="Chulo"> bfff que rollo hermano</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" random="yes" preListening="yes" editor-x="351" editor-y="53" x="351" y="53">
+      <speak-player>Bueno, no pasa nada, pensé que valdrías para algo más que para hablar… pero ya veo que no... </speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Ambos sabemos que que si no lo haces será peor… así que haz lo que quieras</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Me da igual. Tienes que hacerlo.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player>Eres un gusano. Y como tal, me harás caso y barreras el comedor.</speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="593" editor-y="48">
+      <speak-char idTarget="Chulo">¿Qué? ¡Ya verás! Voy a dejar el suelo como una patena. ¡Nadie habla así de Deivid!</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="Chulo.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="593" editor-y="242">
+      <speak-char idTarget="Chulo">Lo haré.. aunque sea un peñazo.</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="Chulo.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="595" editor-y="432">
+      <speak-char idTarget="Chulo">Lo voy a hacer por el proyecto… pero te vas a enterar</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="Chulo.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="591" editor-y="623">
+      <speak-char idTarget="Chulo">¡Vete a tomar viento! No voy a hacer nada de lo que me digas. ¡Te has ganado un enemigo!</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <set-value var="Chulo.afinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="878" editor-y="45">
+      <speak-player>Consegui domar a este...</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="Chulo.TareaFinalizada" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="899" editor-y="475">
+      <speak-player>Creo que la he pifiado</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="Chulo.TareaFracasa" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="Monitor.presentation">
@@ -1486,11 +1580,6 @@
       <condition />
       <speak-char idTarget="Monitor">Como has conseguido dar ganas al Jimeno</speak-char>
       <condition />
-      <end-conversation />
-    </dialogue-node>
-  </graph-conversation>
-  <graph-conversation id="Chulo.Tarea">
-    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
