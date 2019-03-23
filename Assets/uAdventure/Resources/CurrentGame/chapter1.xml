@@ -66,7 +66,6 @@
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
           <inactive flag="VagoPresentado" />
-          <active flag="Monitor.presentado" />
         </condition>
         <effect>
           <trigger-conversation idTarget="Vago.presentacion" />
@@ -75,10 +74,11 @@
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <active flag="VagoPresentado" />
+          <inactive flag="Vago.TrabajoCompletado" />
+          <inactive flag="Vago.TareaFracasa" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="Vago.presentacion.post" />
+          <trigger-conversation idTarget="Vago.Tarea" />
           <condition />
         </effect>
       </talk-to>
@@ -282,12 +282,18 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="Monitor.presentado" />
+        </condition>
         <effect>
           <trigger-conversation idTarget="Monitor.presentation" />
           <condition />
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="Monitor.presentado" />
+        </condition>
         <effect>
           <trigger-conversation idTarget="Monitor.conversacion" />
           <condition />
@@ -345,7 +351,10 @@
       <exit rectangular="yes" x="349" y="712" width="797" height="71" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
-          <active flag="Sumiso.presentado" />
+          <either>
+            <active flag="Sumiso.presentado" />
+            <active flag="VagoPresentado" />
+          </either>
         </condition>
       </exit>
     </exits>
@@ -518,7 +527,11 @@
       </exit>
     </exits>
     <characters>
-      <character-ref idTarget="Vago" x="581" y="783" scale="0.5" orientation="0" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Vago" x="581" y="783" scale="0.5" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="VagoPresentado" />
+        </condition>
+      </character-ref>
     </characters>
   </scene>
   <scene id="HUDTareas" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -570,8 +583,18 @@
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="7" y="147" width="257" height="31" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+      </exit>
+    </exits>
     <characters>
-      <character-ref idTarget="Vago" x="101" y="120" scale="0.1417324" orientation="0" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Vago" x="101" y="120" scale="0.1417324" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Vago.TareaFracasa" />
+          <inactive flag="Vago.TrabajoCompletado" />
+        </condition>
+      </character-ref>
     </characters>
   </scene>
   <scene id="Puerta" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -693,23 +716,31 @@
       <condition />
       <end-conversation />
     </dialogue-node>
-    <option-node nodeindex="4" question="VagoPresentacion1" random="yes" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="823" editor-y="25" x="823" y="25">
-      <speak-player>Hey... soy el nuevo...</speak-player>
+    <option-node nodeindex="4" random="yes" preListening="yes" editor-x="847" editor-y="11" x="847" y="11">
+      <speak-player> Hola, me ha tocado ser el encargado por aquí. Veo que estas vagueando mucho… he venido a cambiar las cosas.</speak-player>
       <condition />
       <child nodeindex="5" />
-      <speak-player>Soy el nuevo.</speak-player>
+      <speak-player>Ey, tio. Me ha tocado ser el encargado… qué pereza.¿Te parece si charlamos un rato y luego ya vemos de ponernos a trabajar?</speak-player>
       <condition />
       <child nodeindex="6" />
-      <speak-player>Soy el nuevo responsable del voluntariado.</speak-player>
+      <speak-player>Hola, soy el nuevo encargado hasta que me toque cocinar.</speak-player>
       <condition />
       <child nodeindex="7" />
-      <speak-player>Ponte a trabajar!</speak-player>
+      <speak-player>Hola, soy el supervisor. Ponte a trabajar ya que hay mucho que hacer.</speak-player>
       <condition />
       <child nodeindex="8" />
     </option-node>
-    <dialogue-node nodeindex="5" editor-x="1880">
-      <speak-player>
-      </speak-player>
+    <dialogue-node nodeindex="5" editor-x="1133" editor-y="13">
+      <speak-char idTarget="Vago">Buf, otro brasas que viene a dar la chapa. No vas a aguantar ni un día por aquí...</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <set-value var="VagoAfinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="1135" editor-y="199">
+      <speak-char idTarget="Vago">Hola tronco, yo soy Jimeno. Me renta tu actitud, vamos a llevarnos flama.</speak-char>
       <condition />
       <child nodeindex="9" />
       <effect>
@@ -717,20 +748,17 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="6" editor-x="1890" editor-y="173">
-      <speak-player>Como te llamas?</speak-player>
-      <condition />
-      <speak-char idTarget="Vago">Hola, soy Lucho</speak-char>
+    <dialogue-node nodeindex="7" editor-x="1131" editor-y="380">
+      <speak-char idTarget="Vago">Ah, hola. Soy Jimeno.</speak-char>
       <condition />
       <child nodeindex="9" />
       <effect>
-        <increment var="VagoAfinidad" value="7" />
+        <increment var="VagoAfinidad" value="5" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="7" editor-x="1901" editor-y="380">
-      <speak-player>
-      </speak-player>
+    <dialogue-node nodeindex="8" editor-x="1132" editor-y="558">
+      <speak-char idTarget="Vago">Yo soy Jimeno, gracias por preguntar, culofino….</speak-char>
       <condition />
       <child nodeindex="9" />
       <effect>
@@ -738,92 +766,10 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="8" editor-x="1897" editor-y="604">
-      <speak-player>#! Gandul!</speak-player>
-      <condition />
-      <child nodeindex="10" />
-      <effect>
-        <set-value var="VagoAfinidad" value="0" />
-        <condition />
-      </effect>
-    </dialogue-node>
-    <dialogue-node nodeindex="9" editor-x="2165" editor-y="82">
-      <speak-player>Como ves tu tarea</speak-player>
-      <condition />
-      <speak-char idTarget="Vago">Pues ya veré</speak-char>
-      <condition />
-      <speak-player>#O Tengo que convencerle que lo haga</speak-player>
-      <condition />
-      <child nodeindex="11" />
-    </dialogue-node>
-    <dialogue-node nodeindex="10" editor-x="2843" editor-y="729">
-      <speak-char idTarget="Vago">Dios que tio mas plasta.</speak-char>
-      <condition />
-      <speak-char idTarget="Vago">Sabes una cosa</speak-char>
-      <condition />
-      <speak-char idTarget="Vago">Aqui hay un arbol, aqui hay un rio, se cae el arbol, y salpica el rio que te den por culo</speak-char>
-      <condition />
+    <dialogue-node nodeindex="9" editor-x="1440" editor-y="13">
       <end-conversation>
         <effect>
-          <set-value var="VagoAfinidad" value="0" />
-          <condition />
-        </effect>
-      </end-conversation>
-    </dialogue-node>
-    <option-node nodeindex="11" question="VagoPresentacion2" random="yes" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="2430" editor-y="15" x="2430" y="15">
-      <speak-player>Escucha, Jimeno.. sé que te va a costar pero</speak-player>
-      <condition />
-      <child nodeindex="12" />
-      <speak-player>Jimeno, sé que estás cansado pero tienes que arreglar el tejado</speak-player>
-      <condition />
-      <child nodeindex="13" />
-      <speak-player>Jimeno, tu te pones y lo haces</speak-player>
-      <condition />
-      <child nodeindex="14" />
-      <speak-player>Es que eres demasiado vago</speak-player>
-      <condition />
-      <child nodeindex="10" />
-    </option-node>
-    <dialogue-node nodeindex="12" editor-x="2855" editor-y="20">
-      <speak-player>Pero cada uno tiene que hacer su tarea</speak-player>
-      <condition />
-      <speak-player>Te propongo lo siguiente</speak-player>
-      <condition />
-      <speak-player>Si lo haces bien te pondré extra de oregano</speak-player>
-      <condition />
-      <speak-char idTarget="Vago">#! TUUUUU, QUE CANTEO, ME RENTA MAZO</speak-char>
-      <condition />
-      <end-conversation>
-        <effect>
-          <increment var="VagoAfinidad" value="10" />
-          <condition />
-        </effect>
-      </end-conversation>
-    </dialogue-node>
-    <dialogue-node nodeindex="13" editor-x="2840" editor-y="268">
-      <speak-char idTarget="Vago">Joe macho, que brasas</speak-char>
-      <condition />
-      <speak-player>Pero es lo que toca</speak-player>
-      <condition />
-      <speak-char idTarget="Vago">Bueno supongo que tienes razón</speak-char>
-      <condition />
-      <end-conversation>
-        <effect>
-          <increment var="VagoAfinidad" value="5" />
-          <condition />
-        </effect>
-      </end-conversation>
-    </dialogue-node>
-    <dialogue-node nodeindex="14" editor-x="2838" editor-y="502">
-      <speak-char idTarget="Vago">Buffff</speak-char>
-      <condition />
-      <speak-char idTarget="Vago">Venga habrá que hacerlo</speak-char>
-      <condition />
-      <speak-char idTarget="Vago">Pero no esperes ninguna maravilla</speak-char>
-      <condition />
-      <end-conversation>
-        <effect>
-          <increment var="VagoAfinidad" value="3" />
+          <activate flag="VagoPresentado" />
           <condition />
         </effect>
       </end-conversation>
@@ -845,6 +791,83 @@
         <less-than var="VagoAfinidad" value="0" />
       </condition>
       <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Vago.Tarea">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>¿Cómo va la cosa?</speak-player>
+      <condition />
+      <speak-char idTarget="Vago">Pues aquí voy. Estaba descansando ahora porque da mucho el sol.</speak-char>
+      <condition />
+      <speak-player>*Tengo que conseguir que acabe de arreglar el tejado...*</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" random="yes" preListening="yes" editor-x="285" editor-y="50" x="285" y="50">
+      <speak-player> Jimeno, sé que estás cansado pero tienes que arreglar el tejado.</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Escucha, Jimeno.. sé que estás descansando y eso.. Pero hay que acabar de arreglar el tejado. Si lo haces… te doblo la ración de comida. ¿Qué me dices?</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>¡Mueve el culo y ponte a arreglar ya el maldito tejado de una vez, vago!</speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player> Jimeno, ahora mismo tienes que ir a arreglar el tejado.</speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="535" editor-y="49">
+      <speak-char idTarget="Vago">Joe macho, que brasas… voy.</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="VagoAfinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="536" editor-y="229">
+      <speak-char idTarget="Vago">Buah tio, me da pereza… pero lo voy a hacer. ¡Si algo me motiva es comer bien!</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="VagoAfinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="539" editor-y="409">
+      <speak-char idTarget="Vago">Eres un imbécil… no voy a hacerlo.</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <set-value var="VagoAfinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="541" editor-y="594">
+      <speak-char idTarget="Vago">Dios que plasta… voy…</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="VagoAfinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="894" editor-y="65">
+      <end-conversation>
+        <effect>
+          <activate flag="Vago.TrabajoCompletado" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="909" editor-y="392">
+      <end-conversation>
+        <effect>
+          <activate flag="Vago.TareaFracasa" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="Trabajador.presentacion">
@@ -1411,7 +1434,7 @@
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="Monitor.conversacion">
-    <dialogue-node nodeindex="0" editor-x="283" editor-y="115">
+    <dialogue-node nodeindex="0" editor-x="275" editor-y="59">
       <speak-char idTarget="Monitor">Veo que todavia no has hablado con Tim</speak-char>
       <condition>
         <inactive flag="Sumiso.presentado" />
@@ -1427,7 +1450,9 @@
         <equals var="Sumiso.afinidad" value="0" />
       </condition>
       <speak-char idTarget="Monitor">Tim te aprecia mucho</speak-char>
-      <condition />
+      <condition>
+        <equals var="Sumiso.afinidad" value="10" />
+      </condition>
       <speak-char idTarget="Monitor">Vete a hablar con Bolt</speak-char>
       <condition>
         <inactive flag="Trabajador.presentado" />
