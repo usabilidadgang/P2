@@ -7,7 +7,7 @@
   <configuration keepShowing="no" keyboard-navigation="disabled" defaultClickAction="showDetails" perspective="regular" dragBehaviour="considerNonTargets" autosave="no" save-on-suspend="no">
     <gui type="contextual" inventoryPosition="top_bottom" />
     <mode playerTransparent="yes" />
-    <tracker rawCopy="yes" storageType="LOCAL" traceFormat="XAPI" host="https://anaytics.e-ucm.es/" trackingCode="5c8a77ea5e3d6c0080bfa937pxn7pdt37c" debug="no" />
+    <tracker rawCopy="yes" storageType="LOCAL" traceFormat="XAPI" host="https://analytics.e-ucm.es/" trackingCode="5c8a77ea5e3d6c0080bfa937pxn7pdt37c" debug="no" />
     <graphics mode="windowed" />
   </configuration>
   <contents>

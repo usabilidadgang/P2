@@ -3,7 +3,7 @@
 <animation id="asdf.eaa.xml" usetransitions="no" slides="no">
   <documentation>Animation created by upgrader</documentation>
   <transition type="none" time="0" />
-  <frame uri="assets/special/EmptyAnimation_01.png" type="image" time="40" waitforclick="no" soundUri="" maxSoundTime="1000">
+  <frame uri="assets/animation/Community Service.png" type="image" time="40" waitforclick="no" soundUri="" maxSoundTime="1000">
     <documentation>
     </documentation>
   </frame>

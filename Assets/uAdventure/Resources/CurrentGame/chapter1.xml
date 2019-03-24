@@ -700,7 +700,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="slides" uri="assets/special/EmptyAnimation" />
+      <asset type="slides" uri="assets/animation/FinalBueno.eaa.xml" />
     </resources>
     <name>
     </name>
@@ -709,7 +709,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="slides" uri="assets/special/EmptyAnimation" />
+      <asset type="slides" uri="assets/animation/FinalMediocre.eaa.xml" />
     </resources>
     <name>
     </name>
@@ -718,7 +718,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="slides" uri="assets/special/EmptyAnimation" />
+      <asset type="slides" uri="assets/animation/FinalNefasto.eaa.xml" />
     </resources>
     <name>
     </name>
@@ -966,7 +966,7 @@
       <speak-player>Pensaba que estabas motivado a trabajar…</speak-player>
       <condition />
       <child nodeindex="7" />
-      <speak-player>Nefasta</speak-player>
+      <speak-player>¿Ya estamos con las quejas?</speak-player>
       <condition />
       <child nodeindex="8" />
     </option-node>
@@ -1008,8 +1008,6 @@
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="8" editor-x="1116" editor-y="690">
-      <speak-char idTarget="Trabajador">¿Ya estamos con las quejas?</speak-char>
-      <condition />
       <speak-player>Oye, no seas borde. Vale ya me pongo hacer esto... </speak-player>
       <condition />
       <child nodeindex="9" />
