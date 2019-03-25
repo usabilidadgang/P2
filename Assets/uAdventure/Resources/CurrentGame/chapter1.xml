@@ -937,7 +937,7 @@
       <condition />
       <child nodeindex="1" />
     </dialogue-node>
-    <option-node nodeindex="1" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="329" editor-y="43" x="329" y="43">
+    <option-node nodeindex="1" random="yes" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="329" editor-y="43" x="329" y="43">
       <speak-player>Si</speak-player>
       <condition />
       <child nodeindex="2" />
@@ -958,7 +958,7 @@
       <condition />
       <end-conversation />
     </dialogue-node>
-    <option-node nodeindex="4" keepShowing="yes" preListening="yes" editor-x="843" editor-y="48" x="843" y="48">
+    <option-node nodeindex="4" random="yes" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="843" editor-y="48" x="843" y="48">
       <speak-player>¿Puedo ayudarte con algo?</speak-player>
       <condition />
       <child nodeindex="5" />
@@ -1035,7 +1035,7 @@
       <condition />
       <child nodeindex="1" />
     </dialogue-node>
-    <option-node nodeindex="1" random="yes" preListening="yes" editor-x="328" editor-y="39" x="328" y="39">
+    <option-node nodeindex="1" random="yes" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="328" editor-y="39" x="328" y="39">
       <speak-player>Miralo desde un punto de vista creativo.</speak-player>
       <condition />
       <child nodeindex="2" />
@@ -1164,7 +1164,7 @@
       <condition />
       <end-conversation />
     </dialogue-node>
-    <option-node nodeindex="4" question="sumiso.presentacion.1" random="yes" preListening="yes" editor-x="742" editor-y="54" x="742" y="54">
+    <option-node nodeindex="4" question="sumiso.presentacion.1" random="yes" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="742" editor-y="54" x="742" y="54">
       <speak-player>Tú debes de ser Timothy…</speak-player>
       <condition />
       <child nodeindex="5" />
@@ -1267,7 +1267,7 @@
       <condition />
       <child nodeindex="1" />
     </dialogue-node>
-    <option-node nodeindex="1" preListening="yes" editor-x="401" editor-y="46" x="401" y="46">
+    <option-node nodeindex="1" random="yes" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="401" editor-y="46" x="401" y="46">
       <speak-player>Lo único que quieres es vaguear y no hacerla. ¡Ponte a trabajar! </speak-player>
       <condition />
       <child nodeindex="2" />
@@ -1354,7 +1354,7 @@
       <condition />
       <child nodeindex="1" />
     </dialogue-node>
-    <option-node nodeindex="1" preListening="yes" editor-x="245" editor-y="54" x="245" y="54">
+    <option-node nodeindex="1" keepShowing="yes" preListening="yes" editor-x="245" editor-y="54" x="245" y="54">
       <speak-player>Si</speak-player>
       <condition />
       <child nodeindex="2" />
@@ -1378,7 +1378,7 @@
       <condition />
       <end-conversation />
     </dialogue-node>
-    <option-node nodeindex="4" keepShowing="yes" preListening="yes" editor-x="765" editor-y="48" x="765" y="48">
+    <option-node nodeindex="4" random="yes" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="765" editor-y="48" x="765" y="48">
       <speak-player>Como el sol cuando amanece yo soy liibre…. </speak-player>
       <condition />
       <child nodeindex="5" />
@@ -1461,7 +1461,7 @@
       <condition />
       <child nodeindex="1" />
     </dialogue-node>
-    <option-node nodeindex="1" random="yes" preListening="yes" editor-x="351" editor-y="53" x="351" y="53">
+    <option-node nodeindex="1" random="yes" keepShowing="yes" preListening="yes" editor-x="351" editor-y="53" x="351" y="53">
       <speak-player>Bueno, no pasa nada, pensé que valdrías para algo más que para hablar… pero ya veo que no... </speak-player>
       <condition />
       <child nodeindex="2" />
