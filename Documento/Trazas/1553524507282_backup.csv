@@ -1,0 +1,82 @@
+1553524507444,accessed,cutscene,Introduccion
+1553524507469,initialized,game,Adventure title
+1553524507470,progressed,game,Adventure title,progress,0
+1553524509722,accessed,area,Campamento.principal
+1553524509727,initialized,completable,vago.afinidad
+1553524509727,progressed,completable,vago.afinidad,progress,0
+1553524509727,initialized,completable,chulo.afinidad
+1553524509727,progressed,completable,chulo.afinidad,progress,0
+1553524509727,initialized,completable,trabajador.afinidad
+1553524509727,progressed,completable,trabajador.afinidad,progress,0
+1553524509727,initialized,completable,sumiso.afinidad
+1553524509727,progressed,completable,sumiso.afinidad,progress,0
+1553524531998,accessed,area,Campamento.sur
+1553524532012,accessed,area,Campamento.sur
+1553524533195,accessed,area,Campamento.sur.tienda
+1553524533209,accessed,area,Campamento.sur.tienda
+1553524542976,progressed,completable,trabajador.afinidad,progress,1
+1553524547708,accessed,area,Campamento.sur
+1553524547721,accessed,area,Campamento.sur
+1553524550802,accessed,area,Campamento.principal
+1553524550816,accessed,area,Campamento.principal
+1553524552494,accessed,area,Campamento.este
+1553524552520,accessed,area,Campamento.este
+1553524556991,accessed,area,Campamento.este.tienda
+1553524557005,accessed,area,Campamento.este.tienda
+1553524570907,progressed,completable,chulo.afinidad,progress,1
+1553524572424,accessed,area,Campamento.este
+1553524572438,accessed,area,Campamento.este
+1553524573344,accessed,area,Campamento.principal
+1553524573358,accessed,area,Campamento.principal
+1553524575495,accessed,area,Campamento.norte
+1553524575509,accessed,area,Campamento.norte
+1553524577476,accessed,area,Campamento.norte.tienda
+1553524577489,accessed,area,Campamento.norte.tienda
+1553524585832,progressed,completable,sumiso.afinidad,progress,1
+1553524585833,selected,question,sumiso.presentacion.1,success,false,response,Por tu cara supongo que eres Timothy,Sumiso.afinidad,3,Sumiso.presentado,1
+1553524588069,accessed,area,Campamento.norte
+1553524588084,accessed,area,Campamento.norte
+1553524601341,accessed,area,Campamento.principal
+1553524601355,accessed,area,Campamento.principal
+1553524606321,accessed,area,Campamento.oeste
+1553524606337,accessed,area,Campamento.oeste
+1553524608372,accessed,area,Campamento.oeste.tienda
+1553524608387,accessed,area,Campamento.oeste.tienda
+1553524616053,progressed,completable,vago.afinidad,progress,1
+1553524616054,selected,question,VagoPresentarse,success,false,response,Si,VagoAfinidad,3,VagoPresentado,1
+1553524618778,accessed,area,Campamento.oeste
+1553524618793,accessed,area,Campamento.oeste
+1553524628789,accessed,area,Campamento.principal
+1553524628804,accessed,area,Campamento.principal
+1553524631421,accessed,area,HUDTareas
+1553524631433,accessed,area,HUDTareas
+1553524638238,accessed,area,Tejado
+1553524638251,accessed,area,Tejado
+1553524644393,progressed,completable,vago.afinidad,progress,1
+1553524644395,completed,completable,vago.afinidad,success,true,score,0,time,134.6661663
+1553524644396,progressed,game,Adventure title,progress,0.25
+1553524646503,accessed,area,HUDTareas
+1553524646517,accessed,area,HUDTareas
+1553524647614,accessed,area,Comedor
+1553524647630,accessed,area,Comedor
+1553524657234,progressed,completable,chulo.afinidad,progress,1
+1553524657239,completed,completable,chulo.afinidad,success,true,score,6,time,147.5070126
+1553524657239,progressed,game,Adventure title,progress,0.5
+1553524658659,accessed,area,HUDTareas
+1553524658675,accessed,area,HUDTareas
+1553524660194,accessed,area,Pared
+1553524660221,accessed,area,Pared
+1553524670279,progressed,completable,trabajador.afinidad,progress,1
+1553524670283,completed,completable,trabajador.afinidad,success,true,score,3,time,160.5517865
+1553524670283,progressed,game,Adventure title,progress,0.75
+1553524671522,accessed,area,HUDTareas
+1553524671537,accessed,area,HUDTareas
+1553524687191,accessed,area,Puerta
+1553524687205,accessed,area,Puerta
+1553524698479,progressed,completable,sumiso.afinidad,progress,1
+1553524698482,completed,completable,sumiso.afinidad,success,true,score,3,time,188.7519511
+1553524698482,progressed,game,Adventure title,progress,1
+1553524700721,accessed,area,HUDTareas
+1553524700735,accessed,area,HUDTareas
+1553524701673,accessed,area,Campamento.principal
+1553524701688,accessed,area,Campamento.principal

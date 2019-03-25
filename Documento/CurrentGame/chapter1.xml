@@ -1,0 +1,1794 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE eAdventure PUBLIC "SYSTEM" "eadventure.dtd">
+<eAdventure version="1">
+  <player>
+    <resources name="No name">
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="yes" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </player>
+  <character id="Vago">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/vago.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/vago.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="VagoPresentado" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Vago.presentacion" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="Vago.TrabajoCompletado" />
+          <inactive flag="Vago.TareaFracasa" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Vago.Tarea" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="Chulo">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/chulo.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/chulo.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="Chulo.presentado" />
+          <either>
+            <inactive flag="Chulo.TareaFinalizada" />
+            <inactive flag="Sumiso.TareaFracaso" />
+          </either>
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Chulo.Tarea" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="Chulo.presentado" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Chulo.presentacion" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="Sumiso">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/sumiso.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/sumiso.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="yes" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="Sumiso.presentado" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Sumiso.Tarea" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <either>
+            <active flag="Monitor.presentado" />
+            <inactive flag="Sumiso.presentado" />
+          </either>
+          <inactive flag="Sumiso.TareaCompletada" />
+          <inactive flag="Sumiso.TareaFracaso" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Sumiso.presentacion" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="Trabajador">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/trabajador.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/trabajador.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="Trabajador.presentado" />
+          <either>
+            <inactive flag="Trabajador.TareaCompletada" />
+            <inactive flag="Trabajador.TareaFracasa" />
+          </either>
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Trabajador.Tarea" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="Trabajador.presentado" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Trabajador.presentacion" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="Monitor">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/monitor.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/monitor.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="Chulo.RamaAcabada" />
+          <active flag="Sumiso.RamaAcabada" />
+          <active flag="Trabajador.RamaAcabada" />
+          <active flag="Vago.RamaAcabada" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Monitor.Evaluacion" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="Monitor.presentado" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Monitor.presentation" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="Monitor.presentado" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="Monitor.conversacion" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <scene id="MainMenu" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/special/EmptyBackground.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <objects>
+      <object-ref idTarget="StartButton" x="406" y="447" scale="1.81054" layer="0" hasInfluenceArea="no" />
+    </objects>
+  </scene>
+  <scene id="Campamento.principal" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/campamento-tlaco-3.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="776" y="292" width="182" height="129" hasInfluenceArea="no" idTarget="Campamento.norte" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="Monitor.presentado" />
+        </condition>
+      </exit>
+      <exit rectangular="yes" x="8" y="302" width="117" height="333" hasInfluenceArea="no" idTarget="Campamento.sur" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="Monitor.presentado" />
+        </condition>
+      </exit>
+      <exit rectangular="yes" x="223" y="279" width="186" height="168" hasInfluenceArea="no" idTarget="Campamento.oeste" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="Monitor.presentado" />
+        </condition>
+      </exit>
+      <exit rectangular="yes" x="1274" y="277" width="218" height="311" hasInfluenceArea="no" idTarget="Campamento.este" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="Monitor.presentado" />
+        </condition>
+      </exit>
+      <exit rectangular="yes" x="349" y="712" width="797" height="71" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="Chulo.presentado" />
+          <active flag="Monitor.presentado" />
+          <active flag="Sumiso.presentado" />
+          <active flag="Trabajador.presentado" />
+          <active flag="VagoPresentado" />
+        </condition>
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Monitor" x="423" y="627" scale="0.4509933" orientation="0" layer="4" hasInfluenceArea="no" />
+      <character-ref idTarget="Vago" x="298" y="654" scale="0.2855782" orientation="0" layer="3" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Monitor.presentado" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Chulo" x="746" y="655" scale="0.2855782" orientation="0" layer="2" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Monitor.presentado" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Sumiso" x="386" y="622" scale="0.2855782" orientation="0" layer="1" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Monitor.presentado" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Trabajador" x="669" y="598" scale="0.2855782" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Monitor.presentado" />
+        </condition>
+      </character-ref>
+    </characters>
+  </scene>
+  <scene id="Campamento.este" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/zonadecamping-lasbrisas.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="296" y="413" width="226" height="40" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="342" y="287" width="58" height="47" hasInfluenceArea="no" idTarget="Campamento.este.tienda" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="Campamento.este.tienda" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/dentro.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="299" y="815" width="497" height="76" hasInfluenceArea="no" idTarget="Campamento.este" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Chulo" x="587" y="780" scale="0.4696003" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Chulo.presentado" />
+        </condition>
+      </character-ref>
+    </characters>
+  </scene>
+  <scene id="Campamento.norte" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/campamento-tlaco-2.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="598" y="721" width="388" height="82" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="1060" y="444" width="100" height="100" hasInfluenceArea="no" idTarget="Campamento.norte.tienda" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="Campamento.norte.tienda" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/dentro.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="249" y="825" width="606" height="81" hasInfluenceArea="no" idTarget="Campamento.norte" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Sumiso" x="600" y="805" scale="0.6936728" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Sumiso.presentado" />
+        </condition>
+      </character-ref>
+    </characters>
+  </scene>
+  <scene id="Campamento.sur" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/campamento1.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="483" y="700" width="438" height="45" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="840" y="452" width="125" height="126" hasInfluenceArea="no" idTarget="Campamento.sur.tienda" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="Campamento.sur.tienda" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/dentro.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="260" y="830" width="632" height="64" hasInfluenceArea="no" idTarget="Campamento.sur" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Trabajador" x="566" y="787" scale="0.5" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Trabajador.presentado" />
+        </condition>
+      </character-ref>
+    </characters>
+  </scene>
+  <scene id="Campamento.oeste" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/campamento-tlaco-4.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="587" y="741" width="477" height="57" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="365" y="434" width="104" height="128" hasInfluenceArea="no" idTarget="Campamento.oeste.tienda" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="Campamento.oeste.tienda" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/dentro.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="281" y="813" width="638" height="73" hasInfluenceArea="no" idTarget="Campamento.oeste" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Vago" x="581" y="783" scale="0.5" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="VagoPresentado" />
+        </condition>
+      </character-ref>
+    </characters>
+  </scene>
+  <scene id="HUDTareas" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/HUD.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="334" y="234" width="70" height="90" hasInfluenceArea="no" idTarget="Comedor" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="10" y="194" width="76" height="104" hasInfluenceArea="no" idTarget="Puerta" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="152" y="11" width="520" height="86" hasInfluenceArea="no" idTarget="Tejado" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="840" y="220" width="102" height="126" hasInfluenceArea="no" idTarget="Pared" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="193" y="447" width="539" height="49" hasInfluenceArea="no" idTarget="Campamento.principal" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="Pared" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/ParedPintar.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="1" y="167" width="271" height="16" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Trabajador" x="206" y="161" scale="0.09" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <active flag="Trabajador.presentado" />
+          <inactive flag="Trabajador.TareaFracasa" />
+          <inactive flag="Trabajador.TareaCompletada" />
+        </condition>
+      </character-ref>
+    </characters>
+  </scene>
+  <scene id="Tejado" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/tejado.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="7" y="147" width="257" height="31" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Vago" x="101" y="120" scale="0.1417324" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Vago.TareaFracasa" />
+          <inactive flag="Vago.TrabajoCompletado" />
+          <active flag="VagoPresentado" />
+        </condition>
+      </character-ref>
+    </characters>
+  </scene>
+  <scene id="Puerta" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Puerta.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="5" y="71" width="78" height="518" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="876" y="87" width="78" height="504" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="72" y="604" width="841" height="35" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Sumiso" x="498" y="597" scale="0.4586336" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="Sumiso.TareaCompletada" />
+          <inactive flag="Sumiso.TareaFracaso" />
+          <active flag="Sumiso.presentado" />
+        </condition>
+      </character-ref>
+    </characters>
+  </scene>
+  <scene id="Comedor" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/comedor.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="2" y="0" width="77" height="447" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="87" y="414" width="519" height="32" hasInfluenceArea="no" idTarget="HUDTareas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Chulo" x="511" y="409" scale="0.31" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <active flag="Chulo.presentado" />
+          <inactive flag="Chulo.TareaFracasa" />
+          <inactive flag="Chulo.TareaFinalizada" />
+        </condition>
+      </character-ref>
+    </characters>
+  </scene>
+  <slidescene id="Introduccion" start="yes" idTarget="Campamento.principal" destinyX="-2147483648" destinyY="-2147483648" transitionTime="0" transitionType="0" next="new-scene" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/animation/asdf.eaa.xml" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
+  <slidescene id="Primer.final.bueno" start="no" next="end-chapter" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/animation/FinalBueno.eaa.xml" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
+  <slidescene id="Primer.final.mediocre" start="no" next="end-chapter" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/animation/FinalMediocre.eaa.xml" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
+  <slidescene id="Primer.final.nefasto" start="no" next="end-chapter" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/animation/FinalNefasto.eaa.xml" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
+  <object id="StartButton" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/PlayButton.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <graph-conversation id="Vago.presentacion">
+    <dialogue-node nodeindex="0" editor-x="55" editor-y="77">
+      <speak-player>#O ¿Hablo con él?</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" question="VagoPresentarse" keepShowing="yes" preListening="yes" editor-x="314" editor-y="76" x="314" y="76">
+      <speak-player>Si</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>No</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="560" editor-y="12">
+      <speak-char idTarget="Vago">Eyy.....</speak-char>
+      <condition />
+      <speak-char idTarget="Vago">¿quien....eres?</speak-char>
+      <condition />
+      <child nodeindex="4" />
+      <effect>
+        <set-value var="VagoAfinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="563" editor-y="242">
+      <speak-player>#O Luego si eso</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <option-node nodeindex="4" random="yes" preListening="yes" editor-x="847" editor-y="11" x="847" y="11">
+      <speak-player> Hola, me ha tocado ser el encargado por aquí. Veo que estas vagueando mucho… he venido a cambiar las cosas.</speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <speak-player>Ey, tio. Me ha tocado ser el encargado… qué pereza.¿Te parece si charlamos un rato y luego ya vemos de ponernos a trabajar?</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Hola, soy el nuevo encargado hasta que me toque cocinar.</speak-player>
+      <condition />
+      <child nodeindex="7" />
+      <speak-player>Hola, soy el supervisor. Ponte a trabajar ya que hay mucho que hacer.</speak-player>
+      <condition />
+      <child nodeindex="8" />
+    </option-node>
+    <dialogue-node nodeindex="5" editor-x="1133" editor-y="13">
+      <speak-char idTarget="Vago">Buf, otro brasas que viene a dar la chapa. No vas a aguantar ni un día por aquí...</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <set-value var="VagoAfinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="1135" editor-y="199">
+      <speak-char idTarget="Vago">Hola tronco, yo soy Jimeno. Me renta tu actitud, vamos a llevarnos flama.</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="VagoAfinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1131" editor-y="380">
+      <speak-char idTarget="Vago">Ah, hola. Soy Jimeno.</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="VagoAfinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1132" editor-y="558">
+      <speak-char idTarget="Vago">Yo soy Jimeno, gracias por preguntar, culofino….</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="VagoAfinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="9" editor-x="1440" editor-y="13">
+      <end-conversation>
+        <effect>
+          <activate flag="VagoPresentado" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Vago.presentacion.post">
+    <dialogue-node nodeindex="0" editor-x="106" editor-y="55">
+      <speak-char idTarget="Vago">#! OOf</speak-char>
+      <condition>
+        <equals var="VagoAfinidad" value="0" />
+      </condition>
+      <speak-char idTarget="Vago">eyyyy</speak-char>
+      <condition>
+        <greater-equals-than var="VagoAfinidad" value="15" />
+      </condition>
+      <speak-char idTarget="Vago">yeeeee</speak-char>
+      <condition>
+        <greater-than var="VagoAfinidad" value="15" />
+        <less-than var="VagoAfinidad" value="0" />
+      </condition>
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Vago.Tarea">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>¿Cómo va la cosa?</speak-player>
+      <condition />
+      <speak-char idTarget="Vago">Pues aquí voy. Estaba descansando ahora porque da mucho el sol.</speak-char>
+      <condition />
+      <speak-player>*Tengo que conseguir que acabe de arreglar el tejado...*</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" random="yes" preListening="yes" editor-x="285" editor-y="50" x="285" y="50">
+      <speak-player> Jimeno, sé que estás cansado pero tienes que arreglar el tejado.</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Escucha, Jimeno.. sé que estás descansando y eso.. Pero hay que acabar de arreglar el tejado. Si lo haces… te doblo la ración de comida. ¿Qué me dices?</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>¡Mueve el culo y ponte a arreglar ya el maldito tejado de una vez, vago!</speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player> Jimeno, ahora mismo tienes que ir a arreglar el tejado.</speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="535" editor-y="49">
+      <speak-char idTarget="Vago">Joe macho, que brasas… voy.</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="VagoAfinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="536" editor-y="229">
+      <speak-char idTarget="Vago">Buah tio, me da pereza… pero lo voy a hacer. ¡Si algo me motiva es comer bien!</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="VagoAfinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="539" editor-y="409">
+      <speak-char idTarget="Vago">Eres un imbécil… no voy a hacerlo.</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <set-value var="VagoAfinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="541" editor-y="594">
+      <speak-char idTarget="Vago">Dios que plasta… voy…</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="VagoAfinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="894" editor-y="65">
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Vago.TrabajoCompletado" />
+        <condition />
+        <increment var="Exitos" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="909" editor-y="392">
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Vago.TareaFracasa" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1163" editor-y="206">
+      <end-conversation>
+        <effect>
+          <activate flag="Vago.RamaAcabada" />
+          <condition />
+          <decrement var="Tareas.Pendientes" value="1" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Trabajador.presentacion">
+    <dialogue-node nodeindex="0" editor-x="19" editor-y="53">
+      <speak-player>#O ¿Hablo con el?</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="329" editor-y="43" x="329" y="43">
+      <speak-player>Si</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>No</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="582" editor-y="56">
+      <speak-player>Buenas Bolt ¿Cómo lo llevas?</speak-player>
+      <condition />
+      <speak-char idTarget="Trabajador">Hola!</speak-char>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="566" editor-y="367">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <option-node nodeindex="4" keepShowing="yes" preListening="yes" editor-x="843" editor-y="48" x="843" y="48">
+      <speak-player>¿Puedo ayudarte con algo?</speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <speak-player>¿Qué ocurre?</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Pensaba que estabas motivado a trabajar…</speak-player>
+      <condition />
+      <child nodeindex="7" />
+      <speak-player>¿Ya estamos con las quejas?</speak-player>
+      <condition />
+      <child nodeindex="8" />
+    </option-node>
+    <dialogue-node nodeindex="5" editor-x="1115" editor-y="14">
+      <speak-char idTarget="Trabajador">Sí… esto es bastante aburrido y me va a llevar mucho tiempo, esperaba hacer algo más complejo que solo pintar una pared.</speak-char>
+      <condition />
+      <speak-player>Tranqui, ve para allá y se nos ocurrirá algo</speak-player>
+      <condition />
+      <speak-char idTarget="Trabajador">Bueno vale, todo es ponerse.</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="1116" editor-y="239">
+      <speak-char idTarget="Trabajador">Pintar la pared no es lo que tenía en mente cuando vine aquí, siento que estoy desperdiciando mi tiempo.</speak-char>
+      <condition />
+      <speak-player>No lo mires así, tu intentalo.</speak-player>
+      <condition />
+      <speak-char idTarget="Trabajador">Ok, a ver si me motivo.</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1116" editor-y="463">
+      <speak-char idTarget="Trabajador">No mal pienses, lo estoy. Pero creo que sería de más ayuda haciendo algo más complicado.</speak-char>
+      <condition />
+      <speak-player>Va, voy para allá.</speak-player>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1116" editor-y="690">
+      <speak-player>Oye, no seas borde. Vale ya me pongo hacer esto... </speak-player>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <set-value var="Trabajador.afinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="9" editor-x="1407" editor-y="13">
+      <end-conversation>
+        <effect>
+          <activate flag="Trabajador.presentado" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Trabajador.Tarea">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Trabajador">Pues aquí estamos.</speak-char>
+      <condition />
+      <speak-player>Plantéatelo de esta forma...</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" random="yes" preListening="yes" editor-x="328" editor-y="39" x="328" y="39">
+      <speak-player>Miralo desde un punto de vista creativo.</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player> Piensa en ello como un juego.</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Acaba lo antes posible y a otra cosa.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player>Has llegado de chulo y te toca apechugar.</speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="588" editor-y="38">
+      <speak-char idTarget="Trabajador">¿Cómo?</speak-char>
+      <condition />
+      <speak-player>Tienes varios botes de pintura, currate algo chulo en la pared y que quede bien, seguro que les gusta.</speak-player>
+      <condition />
+      <speak-player>No tiene por que ser una aburrida pared blanca.</speak-player>
+      <condition />
+      <speak-player>Eso estaría genial, suena más interesante.</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="590" editor-y="283">
+      <speak-char idTarget="Trabajador">Em… </speak-char>
+      <condition />
+      <speak-player>Inventate algún juego, como que vas invadiendo un territorio enemigo pintando la pared. ¿No has jugado al Splatoon?</speak-player>
+      <condition />
+      <speak-char idTarget="Trabajador">No suena muy ahí… pero vale, voy a intentarlo.</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="589" editor-y="516">
+      <speak-char idTarget="Trabajador">Jo, bueno, que remedio, a esto hemos venido.</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="Trabajador.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="587" editor-y="704">
+      <speak-char idTarget="Trabajador">¿QUÉ?</speak-char>
+      <condition />
+      <speak-player>Vas de motivado pero cuando te toca algo que no te gusta solo sabes quejarte.</speak-player>
+      <condition />
+      <speak-char idTarget="Trabajador">Mira, déjame en paz. No he venido aqui para esto.</speak-char>
+      <condition />
+      <child nodeindex="7" />
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="858" editor-y="40">
+      <speak-player>Una cosa menos.</speak-player>
+      <condition />
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Trabajador.TareaCompletada" />
+        <condition />
+        <increment var="Exitos" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="869" editor-y="304">
+      <speak-player>Ups...</speak-player>
+      <condition />
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Trabajador.TareaFracasa" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1128" editor-y="153">
+      <end-conversation>
+        <effect>
+          <activate flag="Trabajador.RamaAcabada" />
+          <condition />
+          <decrement var="Tareas.Pendientes" value="1" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Trabajador.presentacion.post">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <speak-player>
+      </speak-player>
+      <condition />
+      <speak-player>
+      </speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Sumiso.presentacion">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>#O ¿Hablo con él?</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" keepShowing="yes" preListening="yes" editor-x="274" editor-y="53" x="274" y="53">
+      <speak-player>Si</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>No</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="509" editor-y="59">
+      <speak-player>Hola, soy el supervisor.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="499" editor-y="328">
+      <speak-player>#O Luego si eso</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <option-node nodeindex="4" question="sumiso.presentacion.1" random="yes" preListening="yes" editor-x="742" editor-y="54" x="742" y="54">
+      <speak-player>Tú debes de ser Timothy…</speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <speak-player>¿Eres Timothy, no?</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Por tu cara supongo que eres Timothy</speak-player>
+      <condition />
+      <child nodeindex="7" />
+      <speak-player>Hueles a cobarde…</speak-player>
+      <condition />
+      <child nodeindex="8" />
+    </option-node>
+    <dialogue-node nodeindex="5" editor-x="1077" editor-y="39">
+      <speak-player>Para cualquier cosa, aquí estoy</speak-player>
+      <condition />
+      <speak-char idTarget="Sumiso">Si, ese soy yo. Joe, muchas gracias. Se agradece el apoyo...</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="1071" editor-y="260">
+      <speak-char idTarget="Sumiso">Hola, si. Soy Timothy</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1064" editor-y="463">
+      <speak-player>Deberías dejar de estar empanado y ponerte a trabajar</speak-player>
+      <condition />
+      <speak-char idTarget="Sumiso">Si…</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1057" editor-y="679">
+      <speak-player>Así que debes de ser Timothy…</speak-player>
+      <condition />
+      <speak-player>#! Ponte a trabajar</speak-player>
+      <condition />
+      <speak-char idTarget="Sumiso">#! BUAAAAAH</speak-char>
+      <condition />
+      <child nodeindex="10" />
+      <effect>
+        <set-value var="Sumiso.afinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="9" editor-x="1448" editor-y="37">
+      <end-conversation>
+        <effect>
+          <activate flag="Sumiso.presentado" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="10" editor-x="1574" editor-y="724">
+      <speak-char idTarget="Sumiso">#! BUAAAAAH</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <set-value var="Sumiso.afinidad" value="0" />
+          <condition />
+          <activate flag="Sumiso.presentado" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Sumiso.presentacion.post">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Sumiso.Tarea">
+    <dialogue-node nodeindex="0" editor-x="138" editor-y="50">
+      <speak-player>¿Cómo vas con tu Tarea?</speak-player>
+      <condition />
+      <speak-char idTarget="Sumiso">Bueno... </speak-char>
+      <condition />
+      <speak-char idTarget="Sumiso">La verdad es que no muy bien...</speak-char>
+      <condition />
+      <speak-player>¿Y eso?</speak-player>
+      <condition />
+      <speak-char idTarget="Sumiso">Me está costando mucho…</speak-char>
+      <condition />
+      <speak-char idTarget="Sumiso">Creo que es una tarea muy complicada.</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" preListening="yes" editor-x="401" editor-y="46" x="401" y="46">
+      <speak-player>Lo único que quieres es vaguear y no hacerla. ¡Ponte a trabajar! </speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Sé que es difícil. Pero hay que hacerlo, Timothy. Pide ayuda a tus compañeros si lo necesitas.</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Este trabajo se tiene que hacer. Y lo tienes que hacer tú, Timothy. Apañatelas como puedas.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player>Timothy, yo sé perfectamente que puedes hacerlo. ¡Así que confía en tí mismo y ponte a ello!</speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="726" editor-y="13">
+      <speak-char idTarget="Sumiso">*Se pone a llorar y se va*</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="725" editor-y="189">
+      <speak-char idTarget="Sumiso">Vale, lo haré. Gracias.</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="725" editor-y="370">
+      <speak-char idTarget="Sumiso">Vale supervisor. Lo haré. Lo siento.</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="725" editor-y="550">
+      <speak-char idTarget="Sumiso">¡Sí! ¡Tienes razón! Yo puedo hacerlo. ¡Lo intentaré con todas mis ganas!</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <increment var="Sumiso.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="992" editor-y="10">
+      <speak-player>Menudo pussy.</speak-player>
+      <condition />
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Sumiso.TareaFracaso" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="991" editor-y="188">
+      <speak-player>Buen Trabajo</speak-player>
+      <condition />
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Sumiso.TareaCompletada" />
+        <condition />
+        <increment var="Exitos" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1232" editor-y="90">
+      <end-conversation>
+        <effect>
+          <activate flag="Sumiso.RamaAcabada" />
+          <condition />
+          <decrement var="Tareas.Pendientes" value="1" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Chulo.presentacion">
+    <dialogue-node nodeindex="0" editor-x="20" editor-y="56">
+      <speak-player>#O ¿Hablo con él?</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" preListening="yes" editor-x="245" editor-y="54" x="245" y="54">
+      <speak-player>Si</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>No</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="518" editor-y="39">
+      <speak-player>Ey tio yo me encargo de ver como va todo y luego hacer la comida</speak-player>
+      <condition />
+      <speak-char idTarget="Chulo">que pasa loco soy Deivid</speak-char>
+      <condition />
+      <speak-player>Vengo a decirte que vayas a hacer tu tarea.</speak-player>
+      <condition />
+      <speak-player>No me controles tio, yo soy un alma libre.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="507" editor-y="310">
+      <speak-player>Mejor despues...</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <option-node nodeindex="4" keepShowing="yes" preListening="yes" editor-x="765" editor-y="48" x="765" y="48">
+      <speak-player>Como el sol cuando amanece yo soy liibre…. </speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <speak-player>Claro, todos somos libres en la tierra del señor.</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player> Eres libre siempre que hagas la tarea.</speak-player>
+      <condition />
+      <child nodeindex="7" />
+      <speak-player>Por lo que veo eres libre de ser imbécil.</speak-player>
+      <condition />
+      <child nodeindex="8" />
+    </option-node>
+    <dialogue-node nodeindex="5" editor-x="1021" editor-y="47">
+      <speak-char idTarget="Chulo">Veo que molas, tío. Podremos convivir.</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Chulo.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="1023" editor-y="240">
+      <speak-char idTarget="Chulo">Hmm, eres un bicho raro. Déjame en paz y te dejaré en paz.</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Chulo.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1025" editor-y="432">
+      <speak-char idTarget="Chulo">¿Ya nos han mandado otro sargento? No me gusta la gente que me manda, o sea que no me gustas tú.</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <increment var="Chulo.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1024" editor-y="619">
+      <speak-char idTarget="Chulo">Vete de aquí antes de que te abra la cabeza</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <set-value var="Chulo.afinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="9" editor-x="1413" editor-y="32">
+      <speak-player>#! Te veo en el comedor.</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="Chulo.presentado" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Chulo.presentacion.post">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>
+      </speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Chulo.Tarea">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>Necesito que hagas lo que te han pedido.</speak-player>
+      <condition />
+      <speak-player>No es mucha cosa </speak-player>
+      <condition />
+      <speak-char idTarget="Chulo">¿Qué era?</speak-char>
+      <condition />
+      <speak-player> Te tocaba barrer el comedor </speak-player>
+      <condition />
+      <speak-char idTarget="Chulo"> bfff que rollo hermano</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" random="yes" preListening="yes" editor-x="351" editor-y="53" x="351" y="53">
+      <speak-player>Bueno, no pasa nada, pensé que valdrías para algo más que para hablar… pero ya veo que no... </speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Ambos sabemos que que si no lo haces será peor… así que haz lo que quieras</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Me da igual. Tienes que hacerlo.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player>Eres un gusano. Y como tal, me harás caso y barreras el comedor.</speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="593" editor-y="48">
+      <speak-char idTarget="Chulo">¿Qué? ¡Ya verás! Voy a dejar el suelo como una patena. ¡Nadie habla así de Deivid!</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="Chulo.afinidad" value="10" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="593" editor-y="242">
+      <speak-char idTarget="Chulo">Lo haré.. aunque sea un peñazo.</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="Chulo.afinidad" value="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="595" editor-y="432">
+      <speak-char idTarget="Chulo">Lo voy a hacer por el proyecto… pero te vas a enterar</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <increment var="Chulo.afinidad" value="3" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="591" editor-y="623">
+      <speak-char idTarget="Chulo">¡Vete a tomar viento! No voy a hacer nada de lo que me digas. ¡Te has ganado un enemigo!</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <set-value var="Chulo.afinidad" value="0" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="878" editor-y="45">
+      <speak-player>Consegui domar a este...</speak-player>
+      <condition />
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Chulo.TareaFinalizada" />
+        <condition />
+        <increment var="Exitos" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="899" editor-y="475">
+      <speak-player>Creo que la he pifiado</speak-player>
+      <condition />
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="Chulo.TareaFracasa" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1152" editor-y="215">
+      <end-conversation>
+        <effect>
+          <activate flag="Chulo.RamaAcabada" />
+          <condition />
+          <decrement var="Tareas.Pendientes" value="1" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Monitor.presentation">
+    <dialogue-node nodeindex="0" editor-x="169" editor-y="28">
+      <speak-char idTarget="Monitor">¡Bienvenidos a este campamento! Hoy vamos a realizar una serie de actividades para mejorar la estancia de la gente que nos visita. ¡Y todo esto gracias a vosotros! Pero antes me gustaría que os presentarais.</speak-char>
+      <condition />
+      <speak-player>Hola</speak-player>
+      <condition />
+      <speak-char idTarget="Sumiso">Hola, me llamo Timoty… intentaré hacer lo que me pidais, aunque no tengo mucha idea.</speak-char>
+      <condition />
+      <speak-char idTarget="Chulo">¿Qué pasa chavales? Soy el gran Deivid. Dinos que tenemos que hacer para acabar con esto rápido.</speak-char>
+      <condition />
+      <speak-char idTarget="Trabajador">Buenas, yo me llamo Bolt. Tengo ganas de ponerme manos a la obra. ¡Espero poder hacer algo interesante!.</speak-char>
+      <condition />
+      <speak-char idTarget="Vago">Yo soy Jimeno, hubiera preferido quedarme en casa.</speak-char>
+      <condition />
+      <speak-char idTarget="Monitor">No seas así hombre, veréis que lo que os pido será fácil. Os voy a repartir unos papeles con el trabajo que tenéis que hacer cada uno, tomad.</speak-char>
+      <condition />
+      <speak-player>#O *Me ha tocado hacer la comida*</speak-player>
+      <condition />
+      <speak-char idTarget="Sumiso">¿Arreglar una puerta?</speak-char>
+      <condition />
+      <speak-char idTarget="Chulo">¿Pero esto que és?</speak-char>
+      <condition />
+      <speak-char idTarget="Trabajador">Vaya…</speak-char>
+      <condition />
+      <speak-char idTarget="Vago">que pereza</speak-char>
+      <condition />
+      <speak-char idTarget="Monitor">A quien le haya tocado hacer la comida luego, que no se crea que se va a quedar de brazos cruzados hasta la hora de comer. Va a tener que ir a sus compañeros asegurándose de que terminen el trabajo a tiempo. ¡Así que adelante!</speak-char>
+      <condition />
+      <speak-player>#O *Ese soy yo… Vamos a ver cómo se apañan*</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="Monitor.presentado" />
+          <condition />
+          <set-value var="Tareas.Pendientes" value="4" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Monitor.conversacion">
+    <dialogue-node nodeindex="0" editor-x="302" editor-y="98">
+      <speak-char idTarget="Monitor">Veo que todavia no has hablado con Tim</speak-char>
+      <condition>
+        <inactive flag="Sumiso.presentado" />
+      </condition>
+      <speak-char idTarget="Monitor">Vete a hablar con Bolt</speak-char>
+      <condition>
+        <inactive flag="Trabajador.presentado" />
+      </condition>
+      <speak-char idTarget="Monitor">Deivid esta por ahi</speak-char>
+      <condition>
+        <inactive flag="Chulo.presentado" />
+      </condition>
+      <speak-char idTarget="Monitor">El jimeno está por ahi planchado</speak-char>
+      <condition>
+        <inactive flag="VagoPresentado" />
+      </condition>
+      <speak-player>Deivid debe acabar.</speak-player>
+      <condition>
+        <inactive flag="Trabajador.RamaAcabada" />
+      </condition>
+      <speak-player>Timoty debe acabar.</speak-player>
+      <condition>
+        <inactive flag="Sumiso.RamaAcabada" />
+      </condition>
+      <speak-player>Bolt debe acabar</speak-player>
+      <condition>
+        <inactive flag="Trabajador.RamaAcabada" />
+      </condition>
+      <speak-player>Jimeno debe acabar.</speak-player>
+      <condition>
+        <inactive flag="Vago.RamaAcabada" />
+      </condition>
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Monitor.Evaluacion">
+    <dialogue-node nodeindex="0" editor-x="97" editor-y="46">
+      <speak-char idTarget="Monitor">Vamos a ver que tal te has llevado con tus colegas.</speak-char>
+      <condition />
+      <speak-char idTarget="Monitor">Le caes muy bien a Timoty.</speak-char>
+      <condition>
+        <equals var="Sumiso.afinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Con Timoty normalito por lo que veo...</speak-char>
+      <condition>
+        <greater-equals-than var="Sumiso.afinidad" value="10" />
+        <less-than var="Chulo.afinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Has hecho llorar a Timoty merluzo. ¿Como eres tan desgraciado?</speak-char>
+      <condition>
+        <less-equals-than var="Sumiso.afinidad" value="9" />
+      </condition>
+      <speak-char idTarget="Monitor">Me sorprende que consiguieras llevarte bien con Deivid.</speak-char>
+      <condition>
+        <equals var="Chulo.afinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Veo que con Deivid has conseguido no matarte, bien hecho.</speak-char>
+      <condition>
+        <greater-equals-than var="Chulo.afinidad" value="10" />
+        <less-than var="Chulo.afinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Por ahí hay alguien cuyo nombre empieza por D y que quiere partirte la cara.</speak-char>
+      <condition>
+        <less-equals-than var="Chulo.afinidad" value="9" />
+      </condition>
+      <speak-char idTarget="Monitor">Has sacado lo mejor de Bolt, felicidades.</speak-char>
+      <condition>
+        <equals var="Trabajador.afinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Bolt esta contento, tenía miedo de que se motivara demasiado y saliera defraudado.</speak-char>
+      <condition>
+        <greater-equals-than var="Trabajador.afinidad" value="10" />
+        <less-than var="Trabajador.afinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Bolt me ha dicho que eres un pleb al que no se le debe dirigir la palabra.</speak-char>
+      <condition>
+        <less-equals-than var="Trabajador.afinidad" value="9" />
+      </condition>
+      <speak-char idTarget="Monitor">Jimeno ha trabajado bien. ¿Como te las has apañado para darle vida a ese muermo?</speak-char>
+      <condition>
+        <equals var="VagoAfinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Con el horchato de Jimeno no esperaba mucho más por tu parte.</speak-char>
+      <condition>
+        <greater-equals-than var="VagoAfinidad" value="10" />
+        <less-than var="VagoAfinidad" value="20" />
+      </condition>
+      <speak-char idTarget="Monitor">Se nos ha caido el vago por tu culpa, deberías saber como tratar a la gente.</speak-char>
+      <condition>
+        <less-equals-than var="VagoAfinidad" value="9" />
+      </condition>
+      <child nodeindex="1" />
+    </dialogue-node>
+    <dialogue-node nodeindex="1" editor-x="804" editor-y="50">
+      <speak-char idTarget="Monitor">Sin importar que tal te llevaras veamos si se ha hecho todo...</speak-char>
+      <condition />
+      <speak-player>Increible, todo hecho, felicidades eres un buen lider.</speak-player>
+      <condition>
+        <equals var="Exitos" value="4" />
+      </condition>
+      <speak-player>No esta todo, deberías replantearte como has lidiado con tus compañeros, te toca a ti acabarlo.</speak-player>
+      <condition>
+        <equals var="Exitos" value="3" />
+      </condition>
+      <speak-player>Pff falta la mitad por hacer chaval, esto es unicamente culpa tuya.</speak-player>
+      <condition>
+        <equals var="Exitos" value="2" />
+      </condition>
+      <speak-player>No mereces ni el aire que respiras con una sola tarea completada.</speak-player>
+      <condition>
+        <equals var="Exitos" value="1" />
+      </condition>
+      <speak-player>¿Como te las has apañado para no conseguir nada? INUTIL.</speak-player>
+      <condition>
+        <equals var="Exitos" value="0" />
+      </condition>
+      <end-conversation>
+        <effect>
+          <trigger-cutscene idTarget="Primer.final.bueno" />
+          <condition>
+            <equals var="Exitos" value="4" />
+            <equals var="Tareas.Pendientes" value="0" />
+          </condition>
+          <trigger-cutscene idTarget="Primer.final.mediocre" />
+          <condition>
+            <either>
+              <equals var="Exitos" value="3" />
+              <equals var="Exitos" value="2" />
+            </either>
+            <equals var="Tareas.Pendientes" value="0" />
+          </condition>
+          <trigger-cutscene idTarget="Primer.final.nefasto" />
+          <condition>
+            <either>
+              <equals var="Exitos" value="0" />
+              <equals var="Sumiso.afinidad" value="1" />
+            </either>
+            <equals var="Tareas.Pendientes" value="0" />
+          </condition>
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <completable id="vago.afinidad" repeatable="false" type="completable">
+    <start-milestone type="SCENE" targetId="Campamento.principal" />
+    <end-milestone type="CONDITION">
+      <condition>
+        <active flag="Vago.RamaAcabada" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM">
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="VagoPresentado" />
+        </condition>
+      </milestone>
+    </progress>
+    <score type="VARIABLE" method="SINGLE" id="VagoAfinidad" />
+  </completable>
+  <completable id="chulo.afinidad" repeatable="false" type="completable">
+    <start-milestone type="SCENE" targetId="Campamento.principal" />
+    <end-milestone type="CONDITION">
+      <condition>
+        <active flag="Chulo.RamaAcabada" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM">
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="Chulo.presentado" />
+        </condition>
+      </milestone>
+    </progress>
+    <score type="VARIABLE" method="SINGLE" id="Chulo.afinidad" />
+  </completable>
+  <completable id="trabajador.afinidad" repeatable="false" type="completable">
+    <start-milestone type="SCENE" targetId="Campamento.principal" />
+    <end-milestone type="CONDITION">
+      <condition>
+        <active flag="Trabajador.RamaAcabada" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM">
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="Trabajador.presentado" />
+        </condition>
+      </milestone>
+    </progress>
+    <score type="VARIABLE" method="SINGLE" id="Trabajador.afinidad" />
+  </completable>
+  <completable id="sumiso.afinidad" repeatable="false" type="completable">
+    <start-milestone type="SCENE" targetId="Campamento.principal" />
+    <end-milestone type="CONDITION">
+      <condition>
+        <active flag="Sumiso.RamaAcabada" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM">
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="Sumiso.presentado" />
+        </condition>
+      </milestone>
+    </progress>
+    <score type="VARIABLE" method="SINGLE" id="Sumiso.afinidad" />
+  </completable>
+</eAdventure>
