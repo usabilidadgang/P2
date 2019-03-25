@@ -1704,10 +1704,6 @@
         <effect>
           <trigger-cutscene idTarget="Primer.final.bueno" />
           <condition>
-            <greater-equals-than var="Sumiso.afinidad" value="15" />
-            <greater-equals-than var="Trabajador.afinidad" value="15" />
-            <greater-equals-than var="VagoAfinidad" value="15" />
-            <greater-equals-than var="Chulo.afinidad" value="15" />
             <equals var="Exitos" value="4" />
             <equals var="Tareas.Pendientes" value="0" />
           </condition>
@@ -1716,12 +1712,7 @@
             <either>
               <equals var="Exitos" value="3" />
               <equals var="Exitos" value="2" />
-              <equals var="Exitos" value="4" />
             </either>
-            <greater-equals-than var="Chulo.afinidad" value="3" />
-            <greater-equals-than var="VagoAfinidad" value="3" />
-            <greater-equals-than var="Sumiso.afinidad" value="3" />
-            <greater-equals-than var="Trabajador.afinidad" value="3" />
             <equals var="Tareas.Pendientes" value="0" />
           </condition>
           <trigger-cutscene idTarget="Primer.final.nefasto" />
@@ -1736,4 +1727,68 @@
       </end-conversation>
     </dialogue-node>
   </graph-conversation>
+  <completable id="vago.afinidad" repeatable="false" type="completable">
+    <start-milestone type="SCENE" targetId="Campamento.principal" />
+    <end-milestone type="CONDITION">
+      <condition>
+        <active flag="Vago.RamaAcabada" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM">
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="VagoPresentado" />
+        </condition>
+      </milestone>
+    </progress>
+    <score type="VARIABLE" method="SINGLE" id="VagoAfinidad" />
+  </completable>
+  <completable id="chulo.afinidad" repeatable="false" type="completable">
+    <start-milestone type="SCENE" targetId="Campamento.principal" />
+    <end-milestone type="CONDITION">
+      <condition>
+        <active flag="Chulo.RamaAcabada" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM">
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="Chulo.presentado" />
+        </condition>
+      </milestone>
+    </progress>
+    <score type="VARIABLE" method="SINGLE" id="Chulo.afinidad" />
+  </completable>
+  <completable id="trabajador.afinidad" repeatable="false" type="completable">
+    <start-milestone type="SCENE" targetId="Campamento.principal" />
+    <end-milestone type="CONDITION">
+      <condition>
+        <active flag="Trabajador.RamaAcabada" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM">
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="Trabajador.presentado" />
+        </condition>
+      </milestone>
+    </progress>
+    <score type="VARIABLE" method="SINGLE" id="Trabajador.afinidad" />
+  </completable>
+  <completable id="sumiso.afinidad" repeatable="false" type="completable">
+    <start-milestone type="SCENE" targetId="Campamento.principal" />
+    <end-milestone type="CONDITION">
+      <condition>
+        <active flag="Sumiso.RamaAcabada" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM">
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="Sumiso.presentado" />
+        </condition>
+      </milestone>
+    </progress>
+    <score type="VARIABLE" method="SINGLE" id="Sumiso.afinidad" />
+  </completable>
 </eAdventure>
