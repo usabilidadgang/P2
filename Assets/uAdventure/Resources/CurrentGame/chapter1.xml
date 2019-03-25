@@ -1682,23 +1682,23 @@
       <condition />
       <speak-player>Increible, todo hecho, felicidades eres un buen lider.</speak-player>
       <condition>
-        <equals var="Exitos" value="4" />
+        <equals var="trabajosExitosos" value="4" />
       </condition>
       <speak-player>No esta todo, deberías replantearte como has lidiado con tus compañeros, te toca a ti acabarlo.</speak-player>
       <condition>
-        <equals var="Exitos" value="3" />
+        <equals var="trabajosExitosos" value="3" />
       </condition>
       <speak-player>Pff falta la mitad por hacer chaval, esto es unicamente culpa tuya.</speak-player>
       <condition>
-        <equals var="Exitos" value="2" />
+        <equals var="trabajosExitosos" value="2" />
       </condition>
       <speak-player>No mereces ni el aire que respiras con una sola tarea completada.</speak-player>
       <condition>
-        <equals var="Exitos" value="1" />
+        <equals var="trabajosExitosos" value="1" />
       </condition>
       <speak-player>¿Como te las has apañado para no conseguir nada? INUTIL.</speak-player>
       <condition>
-        <equals var="Exitos" value="0" />
+        <equals var="trabajosExitosos" value="0" />
       </condition>
       <end-conversation>
         <effect>
@@ -1790,5 +1790,46 @@
       </milestone>
     </progress>
     <score type="VARIABLE" method="SINGLE" id="Sumiso.afinidad" />
+  </completable>
+  <completable id="trabajosExitosos" repeatable="false" type="completable">
+    <start-milestone type="CONDITION">
+      <condition>
+        <active flag="Chulo.presentado" />
+        <active flag="Monitor.presentado" />
+        <active flag="Trabajador.presentado" />
+        <active flag="VagoPresentado" />
+      </condition>
+    </start-milestone>
+    <end-milestone type="CONDITION">
+      <condition>
+        <active flag="Chulo.RamaAcabada" />
+        <active flag="Sumiso.RamaAcabada" />
+        <active flag="Trabajador.RamaAcabada" />
+        <active flag="Vago.RamaAcabada" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM">
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="Chulo.RamaAcabada" />
+        </condition>
+      </milestone>
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="Sumiso.RamaAcabada" />
+        </condition>
+      </milestone>
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="Trabajador.RamaAcabada" />
+        </condition>
+      </milestone>
+      <milestone type="CONDITION">
+        <condition>
+          <active flag="Vago.RamaAcabada" />
+        </condition>
+      </milestone>
+    </progress>
+    <score type="VARIABLE" method="SINGLE" id="Exitos" />
   </completable>
 </eAdventure>
