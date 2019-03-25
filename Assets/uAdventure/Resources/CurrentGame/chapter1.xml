@@ -696,7 +696,7 @@
     <name>
     </name>
   </slidescene>
-  <slidescene id="Primer.final.bueno" start="no" next="go-back" class="accesible" type="cutscene">
+  <slidescene id="Primer.final.bueno" start="no" next="end-chapter" class="accesible" type="cutscene">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -705,7 +705,7 @@
     <name>
     </name>
   </slidescene>
-  <slidescene id="Primer.final.mediocre" start="no" next="go-back" class="accesible" type="cutscene">
+  <slidescene id="Primer.final.mediocre" start="no" next="end-chapter" class="accesible" type="cutscene">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -714,7 +714,7 @@
     <name>
     </name>
   </slidescene>
-  <slidescene id="Primer.final.nefasto" start="no" next="go-back" class="accesible" type="cutscene">
+  <slidescene id="Primer.final.nefasto" start="no" next="end-chapter" class="accesible" type="cutscene">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -925,6 +925,8 @@
         <effect>
           <activate flag="Vago.RamaAcabada" />
           <condition />
+          <decrement var="Tareas.Pendientes" value="1" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -1117,6 +1119,8 @@
       <end-conversation>
         <effect>
           <activate flag="Trabajador.RamaAcabada" />
+          <condition />
+          <decrement var="Tareas.Pendientes" value="1" />
           <condition />
         </effect>
       </end-conversation>
@@ -1338,6 +1342,8 @@
         <effect>
           <activate flag="Sumiso.RamaAcabada" />
           <condition />
+          <decrement var="Tareas.Pendientes" value="1" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -1530,6 +1536,8 @@
         <effect>
           <activate flag="Chulo.RamaAcabada" />
           <condition />
+          <decrement var="Tareas.Pendientes" value="1" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -1567,6 +1575,8 @@
       <end-conversation>
         <effect>
           <activate flag="Monitor.presentado" />
+          <condition />
+          <set-value var="Tareas.Pendientes" value="4" />
           <condition />
         </effect>
       </end-conversation>
@@ -1667,7 +1677,7 @@
       </condition>
       <child nodeindex="1" />
     </dialogue-node>
-    <dialogue-node nodeindex="1" editor-x="811" editor-y="50">
+    <dialogue-node nodeindex="1" editor-x="804" editor-y="50">
       <speak-char idTarget="Monitor">Sin importar que tal te llevaras veamos si se ha hecho todo...</speak-char>
       <condition />
       <speak-player>Increible, todo hecho, felicidades eres un buen lider.</speak-player>
@@ -1690,7 +1700,40 @@
       <condition>
         <equals var="Exitos" value="0" />
       </condition>
-      <end-conversation />
+      <end-conversation>
+        <effect>
+          <trigger-cutscene idTarget="Primer.final.bueno" />
+          <condition>
+            <greater-equals-than var="Sumiso.afinidad" value="15" />
+            <greater-equals-than var="Trabajador.afinidad" value="15" />
+            <greater-equals-than var="VagoAfinidad" value="15" />
+            <greater-equals-than var="Chulo.afinidad" value="15" />
+            <equals var="Exitos" value="4" />
+            <equals var="Tareas.Pendientes" value="0" />
+          </condition>
+          <trigger-cutscene idTarget="Primer.final.mediocre" />
+          <condition>
+            <either>
+              <equals var="Exitos" value="3" />
+              <equals var="Exitos" value="2" />
+              <equals var="Exitos" value="4" />
+            </either>
+            <greater-equals-than var="Chulo.afinidad" value="3" />
+            <greater-equals-than var="VagoAfinidad" value="3" />
+            <greater-equals-than var="Sumiso.afinidad" value="3" />
+            <greater-equals-than var="Trabajador.afinidad" value="3" />
+            <equals var="Tareas.Pendientes" value="0" />
+          </condition>
+          <trigger-cutscene idTarget="Primer.final.nefasto" />
+          <condition>
+            <either>
+              <equals var="Exitos" value="0" />
+              <equals var="Sumiso.afinidad" value="1" />
+            </either>
+            <equals var="Tareas.Pendientes" value="0" />
+          </condition>
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
 </eAdventure>
